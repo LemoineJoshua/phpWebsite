@@ -7,6 +7,10 @@
     color: white;
 }
 
+::selection {
+    background-color: #bc9a1e77;
+}
+
 body{
     background-color: darkgreen;
 }
@@ -21,11 +25,10 @@ body{
     object-fit: cover;
 }
 
-h1{
+h1 {
     text-align: center;
     font-size: 110px;
-    color: white;
-    width: 100%; 
+    color: white; 
     margin: 10vh 0 0 0;
     font-family: 'Oswald', sans-serif;
     width: 100vw;
@@ -36,15 +39,13 @@ p {
     font-size: 20px;
     text-align: center;
     font-family: 'Roboto', sans-serif;
-    width: 100vw;
-    padding:10px;
 }
 
 .titleAndButton{
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    top:0vh;
+    top: 0vh;
     width: 100%;
     margin-bottom: 10vh;
     margin-top: 13vh;  
@@ -57,22 +58,6 @@ p {
     position: relative;
     justify-content: space-evenly;
     align-items: center;
-}
-
-
-.yellowButton{
-    width:16vw;
-    height: 10vh;
-    border-radius: 50px;
-    background-color: #BC9A1E;
-    text-align: center;
-    padding: 23px;
-}
-
-.underButton{
-    width: 16vw;
-    text-align: center;
-    text-decoration: underline;
 }
 
 a {
@@ -90,30 +75,47 @@ input[type=submit]{
     width: 150px;
 }
 
-form{
-    width: 20vw;
-    margin-left: 5vw;
+.RDV > form {
+    font-family: 'Roboto', sans-serif;
+    border: 1px solid red;
 }
 
 /*Partie RDV */
 
-#RDV[type="radio"] + label {
+.Bouton + label {
+    text-decoration: underline;
+    color: white;
     width: 16vw;
-    height: 10vh;
-    border-radius: 50px;
-    background-color: #BC9A1E;
-    padding: 10px;
-    color:white;
+    min-width: 200px;
+    padding: 20px;
+    text-align: center;
     font-family: 'Roboto', sans-serif;
 }
 
-#RDVCLOSE[type="radio"] + label {
+.Bouton {
+    display: none;
+}
+.Jaune + label {
     width: 16vw;
-    height: 10vh;
-    border-radius: 50px;
-    background-color: black;
-    padding: 10px;
+    min-width: 200px;
+    padding: 20px;
+    border-radius: 100px;
+    background-color: #BC9A1E;
+    text-align: center;
     color:white;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+}
+
+.Fermer + label {
+    width: 16vw;
+    min-width: 200px;
+    padding: 20px;
+    border-radius: 100px;
+    background-color: #292525;
+    text-align: center;
+    color:white;
+    text-decoration: none;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -130,9 +132,10 @@ form{
     z-index: 1;
     overflow: hidden;
     justify-content: space-around;
+    border: 1px solid red;
 }
 
-#RDV[type="radio"]:checked ~ #RDVmenu{
+#RDV[type="radio"]:checked ~ #RDVmenu {
     width: 40vw;
 }
 
@@ -140,29 +143,7 @@ form{
     width: 0vw;
 }
 
-
-
 /* Partie Connection*/
-
-#CONNEC[type="radio"] + label {
-    width: 16vw;
-    height: 10vh;
-    border-radius: 50px;
-    background-color: #BC9A1E;
-    padding: 10px;
-    color: white;
-    font-family: 'Roboto', sans-serif;
-}
-
-#CONNECCLOSE[type="radio"] + label {
-    width: 16vw;
-    height: 10vh;
-    border-radius: 50px;
-    background-color: black;
-    padding: 10px;
-    color:white;
-    font-family: 'Roboto', sans-serif;
-}
 
 .CONNEC{
     display: flex;
@@ -189,15 +170,6 @@ form{
 
 /* partie Tarif */
 
-#TARIF[type="radio"] + label {
-    width: 16vw;
-    height: 10vh;
-    padding: 10px;
-    color: white;
-    text-decoration: underline;
-    font-family: 'Roboto', sans-serif;
-}
-
 .TARIF{
     display: flex;
     flex-wrap: wrap;
@@ -213,16 +185,6 @@ form{
     justify-content: space-around;
 }
 
-#TARIFCLOSE[type="radio"] + label {
-    width: 16vw;
-    height: 10vh;
-    border-radius: 50px;
-    background-color: black;
-    padding: 10px;
-    color:white;
-    font-family: 'Roboto', sans-serif;
-}
-
 #TARIF[type="radio"]:checked ~ #TARIFmenu{
     width: 40vw;
 }
@@ -233,15 +195,6 @@ form{
 
 
 /* Partie Inscription */
-
-#INSC[type="radio"] + label {
-    width: 16vw;
-    height: 10vh;
-    padding: 10px;
-    color: white;
-    text-decoration: underline;
-    font-family: 'Roboto', sans-serif;
-}
 
 .INSC{
     display: flex;
@@ -258,16 +211,6 @@ form{
     justify-content: space-around;
 }
 
-#INSCCLOSE[type="radio"] + label {
-    width: 16vw;
-    height: 10vh;
-    border-radius: 50px;
-    background-color: black;
-    padding: 10px;
-    color:white;
-    font-family: 'Roboto', sans-serif;
-}
-
 #INSC[type="radio"]:checked ~ #INSCmenu{
     width: 40vw;
 }
@@ -276,8 +219,5 @@ form{
     width: 0vw;
 }
 
-/* Pour totu */
 
-.check[type="radio"] {
-    display: none;
-}
+/* Pour totu */
