@@ -154,6 +154,39 @@ form{
     font-family: 'Roboto', sans-serif;
 }
 
+#CONNECCLOSE[type="radio"] + label {
+    width: 16vw;
+    height: 10vh;
+    border-radius: 50px;
+    background-color: black;
+    padding: 10px;
+    color:white;
+    font-family: 'Roboto', sans-serif;
+}
+
+.CONNEC{
+    display: flex;
+    flex-wrap: wrap;
+    position: fixed;
+    flex-direction: column;
+    top:0;
+    right: 0;
+    width: 0vw;
+    height: 100vh;
+    background-color: #BC9A1E;
+    z-index: 1;
+    overflow: hidden;
+    justify-content: space-around;
+}
+
+#CONNEC[type="radio"]:checked ~ #CONNECmenu{
+    width: 40vw;
+}
+
+#CONNECCLOSE[type="radio"]:checked ~ #CONNECmenu{
+    width: 0vw;
+}
+
 /* partie Tarif */
 
 #TARIF[type="radio"] + label {
@@ -163,6 +196,39 @@ form{
     color: white;
     text-decoration: underline;
     font-family: 'Roboto', sans-serif;
+}
+
+.TARIF{
+    display: flex;
+    flex-wrap: wrap;
+    position: fixed;
+    flex-direction: column;
+    top:0;
+    left: 0;
+    width: 0vw;
+    height: 100vh;
+    background-color: #BC9A1E;
+    z-index: 1;
+    overflow: hidden;
+    justify-content: space-around;
+}
+
+#TARIFCLOSE[type="radio"] + label {
+    width: 16vw;
+    height: 10vh;
+    border-radius: 50px;
+    background-color: black;
+    padding: 10px;
+    color:white;
+    font-family: 'Roboto', sans-serif;
+}
+
+#TARIF[type="radio"]:checked ~ #TARIFmenu{
+    width: 40vw;
+}
+
+#TARIFCLOSE[type="radio"]:checked ~ #TARIFmenu{
+    width: 0vw;
 }
 
 
@@ -175,6 +241,39 @@ form{
     color: white;
     text-decoration: underline;
     font-family: 'Roboto', sans-serif;
+}
+
+.INSC{
+    display: flex;
+    flex-wrap: wrap;
+    position: fixed;
+    flex-direction: column;
+    top:0;
+    right: 0;
+    width: 0vw;
+    height: 100vh;
+    background-color: #BC9A1E;
+    z-index: 1;
+    overflow: hidden;
+    justify-content: space-around;
+}
+
+#INSCCLOSE[type="radio"] + label {
+    width: 16vw;
+    height: 10vh;
+    border-radius: 50px;
+    background-color: black;
+    padding: 10px;
+    color:white;
+    font-family: 'Roboto', sans-serif;
+}
+
+#INSC[type="radio"]:checked ~ #INSCmenu{
+    width: 40vw;
+}
+
+#INSCCLOSE[type="radio"]:checked ~ #INSCmenu{
+    width: 0vw;
 }
 
 /* Pour totu */

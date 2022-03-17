@@ -19,6 +19,7 @@
         <div class="titleAndButton"> 
 
             <div Class="containerButtonAndUnder">
+
                 <input type="radio" id="RDV" class="check" name="RDV">
                 <label for="RDV">Prendre rendez-vous</label>
                 <div class="RDV" id="RDVmenu">
@@ -38,15 +39,58 @@
                     <label for="RDVCLOSE">fermer la fenetre</label>
                 </div>
 
-                <input type="radio" id="CONNEC" class="check">
+                <input type="radio" id="CONNEC" class="check" name="CONNEC">
                 <label for="CONNEC">Connexions</label>
-            </div>
-            <div class="containerButtonAndUnder">
-                <input type="radio" id="TARIF" class="check">
-                <label for="TARIF">Tarif</label>
+                <div class="CONNEC" id="CONNECmenu">
+                    <b>SE CONNECTER
+                        <form method="post">
+                            <label for="mail">adresse mail</label><br>
+                            <input form="text"><br>
+                            <label for="mdp">Mot de passe</label><br>
+                            <input type="text"><br>
+                            <input type="submit" value="Connexion"><br>
+                        </form><br></b><br>
+                    <input type="radio" id="CONNECCLOSE" class="check" name="CONNEC">
+                    <label for="CONNECCLOSE">fermer la fenetre</label>
+                </div>
 
-                <input type="radio" id="INSC" class="check">
+            </div>
+
+            <div class="containerButtonAndUnder">
+
+                <input type="radio" id="TARIF" class="check" name="TARIF">
+                <label for="TARIF">Tarif</label>
+                <div class="TARIF" id="TARIFmenu">
+                    <input type="radio" id="TARIFCLOSE" class="check" name="TARIF">
+                    <label for="TARIFCLOSE">fermer la fenetre</label>
+                </div>
+
+                <input type="radio" id="INSC" class="check" name="INSC">
                 <label for="INSC">Inscription</label>
+                <div class="INSC" id="INSCmenu">
+                    <b>INSCRIPTION<br>
+                        <form method="post">
+                            <label for="nom">Nom</label><br>
+                            <input form="text"><br>
+                            <label for="prenom">Prenom</label><br>
+                            <input type="text"><br>
+                            <hr>
+                            <label for="num">Numero de telephone</label><br>
+                            <input form="text"><br>
+                            <label for="adresse">Adresse</label><br>
+                            <input type="text"><br>
+                            <hr>
+                            Pour les entreprise<br>
+                            <label for="IBAN">IBAN</label><br>
+                            <input form="text"><br>
+                            <label for="Site Web">Site web</label><br>
+                            <input type="text"><br>
+                            <input type="submit" value="Inscription"><br>
+                        </form><br></b><br>
+                    <input type="radio" id="INSCCLOSE" class="check" name="INSC">
+                    <label for="INSCCLOSE">fermer la fenetre</label>
+                </div>
+                
             </div> 
             
         </div>
