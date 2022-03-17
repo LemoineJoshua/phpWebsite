@@ -17,13 +17,36 @@
     <div class="background">
         <h1>DAKTARI</h1> <br>
         <div class="titleAndButton"> 
+
             <div Class="containerButtonAndUnder">
-                <a href="#rdv"><div class="yellowButton">Prendre rendez-vous</div></a> 
-                <a href="#coco"><div class="yellowButton">Connexion</div></a>
+                <input type="radio" id="RDV" class="check" name="RDV">
+                <label for="RDV">Prendre rendez-vous</label>
+                <div class="RDV" id="RDVmenu">
+                    <p><b>Prendre rendez-vous</b></p>
+                        <form method="post">
+                            <label for="quand">Quand?</label><br>
+                            <input type="date"><br>
+                            <label for="Ou">Ou?</label><br></b>
+                            <input type="radio" name="Ou"><label for="Ou">Chez Daktari</label><br>
+                            <input type="radio" name="Ou"><label for="Ou">Autre part</label><br>
+                            <input form="text"><br><b>
+                            <label for="Precision">Precisez le probleme :</label> <br>
+                            <textarea name="Precision" id="" cols="30" rows="10"></textarea><br>
+                            <input type="submit" value="Prendre rdv"><br></b>
+                        </form><br>
+                    <input type="radio" id="RDVCLOSE" class="check" name="RDV">
+                    <label for="RDVCLOSE">fermer la fenetre</label>
+                </div>
+
+                <input type="radio" id="CONNEC" class="check">
+                <label for="CONNEC">Connexions</label>
             </div>
             <div class="containerButtonAndUnder">
-                <a href="#tarif"><div class="underButton">Tarif</div></a> 
-                <a href="#insc"><div class="underButton">Inscription</div></a> 
+                <input type="radio" id="TARIF" class="check">
+                <label for="TARIF">Tarif</label>
+
+                <input type="radio" id="INSC" class="check">
+                <label for="INSC">Inscription</label>
             </div> 
             
         </div>
@@ -31,6 +54,9 @@
             Daktari est un vétérinaire reconnu par ses pairs. Il à soigné les animaux les plus impréssionant comme ce lion que vous pouvez voir en arrière plan. C'est le propriétaire, un prince du Kenya, qui lui à offert la photo quand il à vu à quel point son lion Dimitri était en bonne santé après le passage de Daktari.
             </b>
         </p>
+
+        
+
     </div>
 </body>
 </html>
