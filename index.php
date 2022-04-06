@@ -58,13 +58,15 @@
                 <div class="CONNEC" id="CONNECmenu">
                     <div class="form">
                         <form action="profil.php" method="get">
-                            <h2>Se connecter</h2>
+                            <div>
+                                <h2>Se connecter</h2>
                                 <label for="nom">Votre nom : </label>
-                                <input form="text" id="nom" name="nom">
+                                <input type="text" id="nom" name="nom">
                                 <label for="mdp">Mot de passe</label>
                                 <input type="text">
+                            </div>
                                 <input type="submit" value="Connexion">
-                            </form>
+                        </form>
                             <input type="radio" id="CONNECCLOSE" class="Bouton Fermer" name="menu">
                             <label for="CONNECCLOSE"><img src="photo/close.png" alt=""></label>
                     </div>
@@ -77,7 +79,20 @@
                 <label for="TARIF">Tarif</label>
                 <div class="TARIF" id="TARIFmenu">
                     <input type="radio" id="TARIFCLOSE" class="Bouton Fermer" name="menu">
-                    <label for="TARIFCLOSE">fermer la fenetre</label>
+                    <label for="TARIFCLOSE"><img src="photo/close.png" alt=""></label>
+                    <h2>Tarifs</h2>
+<?php
+        include 'connexion.inc.php';
+
+        $result = $cnx->query("SELECT typeconsultation,prixactuel FROM projet.tarifconsultation;");
+        while( $ligne = $result->fetch(PDO::FETCH_OBJ))
+        {
+            echo "<h3> $ligne->typeconsultation - prix : $ligne->prixactuel </h3> <div class='trait'> </div> ";
+        }
+
+
+?>
+
                 </div>
 
                 <input type="radio" id="INSC" class="Bouton lien" name="menu">
