@@ -15,7 +15,8 @@
 
 <body>
     <div class="background">
-        <h1>DAKTARI</h1> <br>
+    </div>
+        <h1>DAKTARI</h1>
         <div class="titleAndButton"> 
 
             <div Class="containerButtonAndUnder">
@@ -23,84 +24,94 @@
                 <input type="radio" id="RDV" class="Bouton Jaune" name="menu">
                 <label for="RDV">Prendre rendez-vous</label>
                 <div class="RDV" id="RDVmenu">
+                    <div class="form">
                     <form method="post">
-                        <p><b>Prendre rendez-vous</b></p>
-                        <label for="quand">Quand?</label><br>
-                        <input type="date"><br>
-                        <label for="Ou">Ou?</label><br></b>
-                        <input type="radio" name="Ou"><label for="Ou">Chez Daktari</label><br>
-                        <input type="radio" name="Ou"><label for="Ou">Autre part</label><br>
-                        <input form="text"><br><b>
-                        <label for="Precision">Precisez le probleme :</label> <br>
-                        <textarea name="Precision" id="" cols="30" rows="10"></textarea><br>
-                        <input type="submit" value="Prendre rdv"><br></b>
-                    </form><br>
-                    <input type="radio" id="RDVCLOSE" class="Bouton Fermer" name="menu">
-                    <label for="RDVCLOSE">fermer la fenetre</label>
+                            <h2>Prendre rendez-vous</h2>
+                            <div>
+                                <label for="date">Quand ?</label>
+                                <input type="date" name="date">
+                            </div>
+                            <div>
+                                <label for="Ou">Où ?</label></b>
+                                <input type="radio" name="Ou">
+                                <label for="Ou">Chez Daktari</label>
+                                <input type="radio" name="Ou">
+                                <label for="Ou">Autre part</label>
+                                <input form="text">
+                            </div>
+                            <div>
+                                <label for="Precision">Precisez le problème :</label>
+                                <textarea name="Precision" id="" cols="30" rows="10"></textarea>
+                            </div>
+                        
+            
+                            <input type="submit" value="Prendre rdv">
+                        </form>
+                        <input type="radio" id="RDVCLOSE" class="Bouton Fermer" name="menu">
+                        <label for="RDVCLOSE"><img src="photo/close.png" alt=""></label>
+                    </div>
                 </div>
+
 
                 <input type="radio" id="CONNEC" class="Bouton Jaune" name="menu">
                 <label for="CONNEC">Connexions</label>
                 <div class="CONNEC" id="CONNECmenu">
-                    <b>SE CONNECTER
-                        <form method="post">
-                            <label for="mail">adresse mail</label><br>
-                            <input form="text"><br>
-                            <label for="mdp">Mot de passe</label><br>
-                            <input type="text"><br>
-                            <input type="submit" value="Connexion"><br>
-                        </form><br></b><br>
-                    <input type="radio" id="CONNECCLOSE" class="Bouton Fermer" name="menu">
-                    <label for="CONNECCLOSE">fermer la fenetre</label>
+                    <div class="form">
+                        <form action="profil.php" method="get">
+                            <h2>Se connecter</h2>
+                                <label for="nom">Votre nom : </label>
+                                <input form="text" id="nom" name="nom">
+                                <label for="mdp">Mot de passe</label>
+                                <input type="text">
+                                <input type="submit" value="Connexion">
+                            </form>
+                            <input type="radio" id="CONNECCLOSE" class="Bouton Fermer" name="menu">
+                            <label for="CONNECCLOSE"><img src="photo/close.png" alt=""></label>
+                    </div>
                 </div>
-
             </div>
 
             <div class="containerButtonAndUnder">
 
-                <input type="radio" id="TARIF" class="Bouton" name="menu">
+                <input type="radio" id="TARIF" class="Bouton lien" name="menu">
                 <label for="TARIF">Tarif</label>
                 <div class="TARIF" id="TARIFmenu">
                     <input type="radio" id="TARIFCLOSE" class="Bouton Fermer" name="menu">
                     <label for="TARIFCLOSE">fermer la fenetre</label>
                 </div>
 
-                <input type="radio" id="INSC" class="Bouton" name="menu">
+                <input type="radio" id="INSC" class="Bouton lien" name="menu">
                 <label for="INSC">Inscription</label>
                 <div class="INSC" id="INSCmenu">
-                    <b>INSCRIPTION<br>
-                        <form method="post">
-                            <label for="nom">Nom</label><br>
-                            <input form="text"><br>
-                            <label for="prenom">Prenom</label><br>
-                            <input type="text"><br>
-                            <hr>
-                            <label for="num">Numero de telephone</label><br>
-                            <input form="text"><br>
-                            <label for="adresse">Adresse</label><br>
-                            <input type="text"><br>
-                            <hr>
-                            Pour les entreprise<br>
-                            <label for="IBAN">IBAN</label><br>
-                            <input form="text"><br>
-                            <label for="Site Web">Site web</label><br>
-                            <input type="text"><br>
-                            <input type="submit" value="Inscription"><br>
-                        </form><br></b><br>
-                    <input type="radio" id="INSCCLOSE" class="Bouton Fermer" name="menu">
-                    <label for="INSCCLOSE">fermer la fenetre</label>
+                        <div class="form">
+                            <form method="post">
+                                <h2>INSCRIPTION</h2>
+                                <div>
+                                    <label for="nom">Nom</label>
+                                    <input form="text">
+                                    <label for="prenom">Prenom</label>
+                                    <input type="text">
+                                    <label for="num">Numero de telephone</label>
+                                    <input form="text">
+                                    <label for="adresse">Adresse</label>
+                                    <input type="text">
+                                    <h3>Pour les entreprise</h3>
+                                    <label for="IBAN">IBAN</label>
+                                    <input form="text">
+                                    <label for="Site Web">Site web</label>
+                                    <input type="text">
+                                </div>
+                                <input type="submit" value="Inscription">
+                            </form>
+                        <input type="radio" id="INSCCLOSE" class="Bouton Fermer" name="menu">
+                        <label for="INSCCLOSE"><img src="photo/close.png" alt=""></label>
+                    </div>
                 </div>
-                
-            </div> 
-            
+            </div>   
         </div>
         <p><b>
             Daktari est un vétérinaire reconnu par ses pairs. Il à soigné les animaux les plus impréssionant comme ce lion que vous pouvez voir en arrière plan. C'est le propriétaire, un prince du Kenya, qui lui à offert la photo quand il à vu à quel point son lion Dimitri était en bonne santé après le passage de Daktari.
             </b>
         </p>
-
-        
-
-    </div>
 </body>
 </html>

@@ -17,7 +17,7 @@ catch (PDOException $e) {
  * page html. Attention c'est utile pour débugger mais cela affiche des
  * informations potentiellement confidentielles donc éviter de le faire pour un
  * site en production.*/
-//    echo "Error: " . $e;
+    echo "Error: " . $e;
 
 }
 

@@ -1,5 +1,4 @@
 
-
 * {
     margin: 0;
     padding: 0;
@@ -16,20 +15,23 @@ body{
 }
 
 .background {
-    background-image: url('photo/lelion.jpg');
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    width: 100vw;
+    height: 100vh;
+    background-attachment: fixed;
+    background-position:center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(photo/lelion.jpg);
+    filter: blur(1px);
+    position: fixed;
+    z-index: -1;
 }
 
 h1 {
+    padding-top: 10vh;
     text-align: center;
     font-size: 110px;
     color: white; 
-    margin: 10vh 0 0 0;
     font-family: 'Oswald', sans-serif;
     width: 100vw;
 }
@@ -68,33 +70,96 @@ a {
 
 input[type=submit]{
     color:white;
-    background-color: black;
+    background-color: #281A1F;;
     border-radius: 20px;
     border: none;
     height: 40px;
     width: 150px;
 }
 
-.RDV > form {
-    font-family: 'Roboto', sans-serif;
-    border: 1px solid red;
-}
-
 /*Partie RDV */
 
-.Bouton + label {
-    text-decoration: underline;
-    color: white;
-    width: 16vw;
-    min-width: 200px;
-    padding: 20px;
-    text-align: center;
+.RDV{
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    background-color: #BC9A1E;
+    z-index: 1;
+    width: 0;
+    overflow: hidden;
+    justify-content: center;
+}
+
+.form {
     font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+}
+
+.form > form {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.form > form > h2 {
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.form > form > div > label {
+    margin-bottom: 5px;
+}
+
+.form > form > div > input {
+    margin-bottom: 10px;
+    color: #281A1F;
+}
+
+.form > form > div > textarea {
+    margin-bottom: 10px;
+    resize: none;
+    color: #281A1F;
+}
+
+form > div {
+    display: flex;
+    flex-direction: column;
+}
+
+#RDV[type="radio"]:checked ~ #RDVmenu {
+    width: fit-content;
+}
+
+#RDVCLOSE[type="radio"]:checked ~ #RDVmenu{
+    width: 0;
 }
 
 .Bouton {
     display: none;
 }
+
+
+.Bouton + label {
+    text-decoration: underline;
+    color: white;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+.lien + label {
+    width: 16vw;
+    margin-top: 10px;
+}
+
 .Jaune + label {
     width: 16vw;
     min-width: 200px;
@@ -104,43 +169,19 @@ input[type=submit]{
     text-align: center;
     color:white;
     text-decoration: none;
+    box-shadow: 0px 5px 10px#00000073;
     font-family: 'Roboto', sans-serif;
 }
 
 .Fermer + label {
-    width: 16vw;
-    min-width: 200px;
-    padding: 20px;
-    border-radius: 100px;
-    background-color: #292525;
-    text-align: center;
-    color:white;
-    text-decoration: none;
-    font-family: 'Roboto', sans-serif;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 20px;
 }
 
-.RDV{
-    display: flex;
-    flex-wrap: wrap;
-    position: fixed;
-    flex-direction: column;
-    top:0;
-    left: 0;
-    width: 0vw;
-    height: 100vh;
-    background-color: #BC9A1E;
-    z-index: 1;
-    overflow: hidden;
-    justify-content: space-around;
-    border: 1px solid red;
-}
-
-#RDV[type="radio"]:checked ~ #RDVmenu {
-    width: 40vw;
-}
-
-#RDVCLOSE[type="radio"]:checked ~ #RDVmenu{
-    width: 0vw;
+label > img {
+    width: 100%;
 }
 
 /* Partie Connection*/
@@ -161,7 +202,7 @@ input[type=submit]{
 }
 
 #CONNEC[type="radio"]:checked ~ #CONNECmenu{
-    width: 40vw;
+    width: fit-content;
 }
 
 #CONNECCLOSE[type="radio"]:checked ~ #CONNECmenu{
@@ -212,7 +253,7 @@ input[type=submit]{
 }
 
 #INSC[type="radio"]:checked ~ #INSCmenu{
-    width: 40vw;
+    width: fit-content;
 }
 
 #INSCCLOSE[type="radio"]:checked ~ #INSCmenu{
@@ -221,3 +262,5 @@ input[type=submit]{
 
 
 /* Pour totu */
+
+
