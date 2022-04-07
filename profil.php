@@ -12,7 +12,7 @@
     
     <div class="root">
 
-        <a href="index.html" class="btn"><img src="photo/accueil 1.png" alt="bouton retour" class="btn"></a>
+        <a href="index.php" class="btn"><img src="photo/accueil 1.png" alt="bouton retour" class="btn"></a>
 <?php
 
     include 'connexion.inc.php';
