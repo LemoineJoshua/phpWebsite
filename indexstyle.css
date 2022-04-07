@@ -196,6 +196,18 @@ form > div {
     font-family: 'Roboto', sans-serif;
 }
 
+.divJaune {
+    width: 16vw;
+    padding: 20px;
+    border-radius: 100px;
+    background-color: #BC9A1E;
+    text-align: center;
+    color:white;
+    text-decoration: none;
+    box-shadow: 0px 5px 10px #00000073;
+    font-family: 'Roboto', sans-serif;
+}
+
 .Fermer + label {
     position: absolute;
     top: 20px;

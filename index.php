@@ -12,10 +12,23 @@
     @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@600&family=Roboto:wght@100;700&display=swap');
 </style>
 
+<?php
+    include 'connexion.inc.php';
+    if(isset($_GET["nom"]))
+    {
+
+        $prop=$_GET['nom'];
+        $result=$cnx->query("SELECT numprop FROM projet.proprietaire WHERE nom='$prop';");
+        while( $ligne = $result->fetch(PDO::FETCH_OBJ) )
+        {
+            $numprop = $ligne->numprop; 
+        }
+    }
+?>
 
 <body>
     <div class="background">
-    </div>
+        </div>
         <h1>DAKTARI</h1>
         <div class="titleAndButton"> 
 
@@ -25,53 +38,71 @@
                 <label for="RDV">Prendre rendez-vous</label>
                 <div class="RDV" id="RDVmenu">
                     <div class="form">
-                    <form method="post">
-                            <h2>Prendre rendez-vous</h2>
-                            <div>
-                                <label for="date">Quand ?</label>
-                                <input type="date" name="date">
-                            </div>
-                            <div>
-                                <label for="Ou">Où ?</label></b>
-                                <input type="radio" name="Ou">
-                                <label for="Ou">Chez Daktari</label>
-                                <input type="radio" name="Ou">
-                                <label for="Ou">Autre part</label>
-                                <input form="text">
-                            </div>
-                            <div>
-                                <label for="Precision">Precisez le problème :</label>
-                                <textarea name="Precision" id="" cols="30" rows="10"></textarea>
-                            </div>
+                    <h2>Prendre rendez-vous</h2>
+<?php
+        if(isset($_GET["nom"]))
+        {
+            echo"       <form method='post'>
                         
-            
-                            <input type="submit" value="Prendre rdv">
-                        </form>
-                        <input type="radio" id="RDVCLOSE" class="Bouton Fermer" name="menu">
-                        <label for="RDVCLOSE"><img src="photo/close.png" alt=""></label>
+                            <div>
+                                <label for='date'>Quand ?</label>
+                                <input type='date' name='date'>
+                            </div>
+                            <div>
+                                <label for='Ou'>Où ?</label></b>
+                                <input type='radio' name='Ou'>
+                                <label for='Ou'>Chez Daktari</label>
+                                <input type='radio' name='Ou'>
+                                <label for='Ou'>Autre part</label>
+                                <input form='text'>
+                            </div>
+                            <div>
+                                <label for='Precision'>Precisez le problème :</label>
+                                <textarea name='Precision' id='' cols='30' rows='10'></textarea>
+                            </div>
+                            <input type='submit' value='Prendre rdv'>
+                        </form>";
+        }else
+        {
+            echo"<h3>Connectez-vous pour avoir accès à cette fonctionnalité</h3>";
+        }
+
+?>
+                        <input type='radio' id='RDVCLOSE' class='Bouton Fermer' name='menu'>
+                        <label for='RDVCLOSE'><img src='photo/close.png' alt=''></label>
                     </div>
-                </div>
-
-
-                <input type="radio" id="CONNEC" class="Bouton Jaune" name="menu">
-                <label for="CONNEC">Connexions</label>
-                <div class="CONNEC" id="CONNECmenu">
-                    <div class="form">
-                        <form action="profil.php" method="get">
+                </div>                
+<?php
+    if(isset($_GET["nom"]))
+    {
+        echo"
+                <div class='divJaune'><a href='profil.php?nom=$prop'>Mon compte</a></div>
+            ";
+    }else{
+        echo "
+                <input type='radio' id='CONNEC' class='Bouton Jaune' name='menu'>
+                <label for='CONNEC'>Connexions</label>
+                <div class='CONNEC' id='CONNECmenu'>
+                    <div class='form'>
+                        <form action='profil.php' method='get'>
                             <div>
                                 <h2>Se connecter</h2>
-                                <label for="nom">Votre nom : </label>
-                                <input type="text" id="nom" name="nom">
-                                <label for="mdp">Mot de passe</label>
-                                <input type="text">
+                                <label for='nom'>Votre nom : </label>
+                                <input type='text' id='nom' name='nom'>
+                                <label for='mdp'>Mot de passe</label>
+                                <input type='text'>
                             </div>
-                                <input type="submit" value="Connexion">
+                                <input type='submit' value='Connexion'>
                         </form>
-                            <input type="radio" id="CONNECCLOSE" class="Bouton Fermer" name="menu">
-                            <label for="CONNECCLOSE"><img src="photo/close.png" alt=""></label>
+                            <input type='radio' id='CONNECCLOSE' class='Bouton Fermer' name='menu'>
+                            <label for='CONNECCLOSE'><img src='photo/close.png' alt=''></label>
                     </div>
-                </div>
-            </div>
+                </div>";
+    }
+
+
+?>         
+        </div>
 
             <div class="containerButtonAndUnder">
 
@@ -82,15 +113,11 @@
                     <label for="TARIFCLOSE"><img src="photo/close.png" alt=""></label>
                     <h2>Tarifs</h2>
 <?php
-        include 'connexion.inc.php';
-
         $result = $cnx->query("SELECT typeconsultation,prixactuel FROM projet.tarifconsultation;");
         while( $ligne = $result->fetch(PDO::FETCH_OBJ))
         {
             echo "<h3> $ligne->typeconsultation - prix : $ligne->prixactuel </h3> <div class='trait'> </div> ";
         }
-
-
 ?>
 
                 </div>
@@ -98,9 +125,9 @@
                 <input type="radio" id="INSC" class="Bouton lien" name="menu">
                 <label for="INSC">Inscription</label>
                 <div class="INSC" id="INSCmenu">
-                        <div class="form">
-                            <form method="post">
-                                <h2>INSCRIPTION</h2>
+                    <div class="form">
+                        <h2>INSCRIPTION</h2>
+                            <form action="" method='get'>
                                 <div>
                                     <label for="nom">Nom</label>
                                     <input form="text">

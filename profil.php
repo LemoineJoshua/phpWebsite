@@ -10,9 +10,7 @@
 </head>
 <body>
     
-    <div class="root">
-
-        <a href="index.php" class="btn"><img src="photo/accueil 1.png" alt="bouton retour" class="btn"></a>
+    
 <?php
 
     include 'connexion.inc.php';
@@ -28,6 +26,10 @@
         }
        
         if($rowcount!=0){
+
+            echo "<div class='root'>";
+
+            echo "<a href='index.php?nom=$prop' class='btn'><img src='photo/accueil 1.png' alt='bouton retour' class='btn'></a>";
 
             $result = $cnx->query("SELECT numprop,prenom FROM projet.proprietaire WHERE nom='$prop';");
             while( $ligne = $result->fetch(PDO::FETCH_OBJ) )
@@ -67,11 +69,15 @@
         }
         else
         {
+            echo "<div class='root'>";
+            echo "<a href='index.php' class='btn'><img src='photo/accueil 1.png' alt='bouton retour' class='btn'></a>";
             echo "votre compte n'existe pas";
         } 
     }
     else
     {
+        echo "<div class='root'>";
+        echo "<a href='index.php' class='btn'><img src='photo/accueil 1.png' alt='bouton retour' class='btn'></a>";
         echo "passez par la page d'acceuil pour vous connecter!";
     } 
 ?>
