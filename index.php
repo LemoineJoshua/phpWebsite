@@ -14,6 +14,8 @@
 
 <?php
     include 'connexion.inc.php';
+    $numprop="undefined";
+    
     if(isset($_GET["nom"]))
     {
 
@@ -40,7 +42,7 @@
                     <div class="form">
                     <h2>Prendre rendez-vous</h2>
 <?php
-        if(isset($_GET["nom"]))
+        if($numprop!="undefined")
         {
             echo"       <form method='post'>
                         
@@ -73,7 +75,7 @@
                     </div>
                 </div>                
 <?php
-    if(isset($_GET["nom"]))
+    if($numprop!="undefined")
     {
         echo"
                 <div class='divJaune'><a href='profil.php?nom=$prop'>Mon compte</a></div>
