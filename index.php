@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="indexstyle.css">
-    <title>Document</title>
+    <title>DAKTARI</title>
 </head>
 
 <style>
@@ -42,9 +42,9 @@
                     <div class="form">
                     <h2>Prendre rendez-vous</h2>
 <?php
-        if($numprop!="undefined")
+        if ($numprop!="undefined")
         {
-            echo"       <form method='post'>
+            echo        "<form method='post'>
                         
                             <div>
                                 <label for='date'>Quand ?</label>
@@ -64,7 +64,8 @@
                             </div>
                             <input type='submit' value='Prendre rdv'>
                         </form>";
-        }else
+        } else
+
         {
             echo"<h3>Connectez-vous pour avoir accès à cette fonctionnalité</h3>";
         }
@@ -132,21 +133,56 @@
                             <form action="" method='get'>
                                 <div>
                                     <label for="nom">Nom</label>
-                                    <input form="text">
+                                    <input form="text" name="nom">
                                     <label for="prenom">Prenom</label>
-                                    <input type="text">
+                                    <input type="text" name="prenom">
                                     <label for="num">Numero de telephone</label>
-                                    <input form="text">
+                                    <input form="text" name="num">
                                     <label for="adresse">Adresse</label>
-                                    <input type="text">
+                                    <input type="text" name="adresse">
                                     <h3>Pour les entreprise</h3>
                                     <label for="IBAN">IBAN</label>
-                                    <input form="text">
-                                    <label for="Site Web">Site web</label>
-                                    <input type="text">
+                                    <input form="text" name="IBAN">
+                                    <label for="SiteWeb">Site web</label>
+                                    <input type="text" name="SiteWeb">
                                 </div>
                                 <input type="submit" value="Inscription">
                             </form>
+
+                            <?php
+
+                                if (isset($_GET['nom'], $_GET['prenom'], $_GET['num'], $_GET['adresse'])) {
+                                    if (empty($_GET['nom']) || empty($_GET['prenom']) || empty($_GET['num']) || empty($_GET['adresse'])) {
+                                        echo "Veuillez remplir les champs";
+                                    } else {
+
+                                        if (isset($_GET['IBAN'])) {
+                                            $IBAN = $_GET['IBAN'];
+                                        } else {
+                                            $IBAN = "NULL";
+                                        }
+
+                                        if (isset($_GET['SiteWeb'])) {
+                                            $SiteWeb = $_GET['SiteWeb'];
+                                        } else {
+                                            $SiteWeb = "NULL";
+                                        }
+                                        function generateRandomString($length = 25) {
+                                            $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+                                            $charactersLength = strlen($characters);
+                                            $randomString = '';
+                                            for ($i = 0; $i < $length; $i++) {
+                                                $randomString .= $characters[rand(0, $charactersLength - 1)];
+                                            }
+                                            return $randomString;
+                                        }
+                                        //usage 
+                                        $myRandomString = generateRandomString(10);
+                                        $result = $cnx->query("INSERT INTO projet.proprietaire VALUES(".$myRandomString.",".$_GET['nom'].",".$_GET['prenom'].",".$_GET['adresse'].",".$_GET['num'].",".$IBAN.",".$SiteWeb.")");
+                                    }
+                                }
+
+                            ?>
                         <input type="radio" id="INSCCLOSE" class="Bouton Fermer" name="menu">
                         <label for="INSCCLOSE"><img src="photo/close.png" alt=""></label>
                     </div>
