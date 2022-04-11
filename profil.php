@@ -1,3 +1,8 @@
+<?php
+session_start();
+$_SESSION['numprop']="undefined";
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -16,8 +21,14 @@
     include 'connexion.inc.php';
 
     if(isset($_GET["nom"])){
+        $_SESSION["nom"]=$_GET["nom"];
+    }
 
-        $prop=$_GET['nom'];
+
+    if($_SESSION["nom"]!=null){
+
+        
+        $prop=$_SESSION["nom"];
         $result=$cnx->query("SELECT numprop FROM projet.proprietaire WHERE nom='$prop';");
         $rowcount=0;
         while( $ligne = $result->fetch(PDO::FETCH_OBJ) )
@@ -26,15 +37,15 @@
         }
        
         if($rowcount!=0){
-
+            
             echo "<div class='root'>";
 
-            echo "<a href='index.php?nom=$prop' class='btn'><img src='photo/accueil 1.png' alt='bouton retour' class='btn'></a>";
+            echo "<a href='index.php' class='btn'><img src='photo/accueil 1.png' alt='bouton retour' class='btn'></a>";
 
             $result = $cnx->query("SELECT numprop,prenom FROM projet.proprietaire WHERE nom='$prop';");
             while( $ligne = $result->fetch(PDO::FETCH_OBJ) )
             {
-                $numprop=$ligne->numprop;
+                $_SESSION["numprop"]=$ligne->numprop;
                 $prenom=$ligne->prenom; 
             }
             
@@ -46,6 +57,7 @@
                 <h2>Vos Animaux</h2>
                 <ul>
 <?php
+            $numprop=$_SESSION["numprop"];
             $result = $cnx->query("SELECT nom,espece FROM projet.animaux WHERE numprop='$numprop';");
             while( $ligne = $result->fetch(PDO::FETCH_OBJ) )
             {
@@ -60,10 +72,10 @@
                 <h2>Vos rendez-vous</h2>
                 <ul>
 <?php
-            $result = $cnx->query("SELECT lieu, dateheure FROM projet.consultation AS c ,projet.consulter AS co , projet.animaux  AS a ,projet.proprietaire AS pro WHERE c.numCons=co.numCons AND co.numanimal=a.numanimal AND a.numprop=pro.numprop AND pro.nom='$prop';");
+            $result = $cnx->query("SELECT lieu, dateheure, a.nom FROM projet.consultation AS c ,projet.consulter AS co , projet.animaux  AS a ,projet.proprietaire AS pro WHERE c.numCons=co.numCons AND co.numanimal=a.numanimal AND a.numprop=pro.numprop AND pro.nom='$prop';");
             while( $ligne = $result->fetch(PDO::FETCH_OBJ) )
             {
-                echo "<li> DATE : $ligne->dateheure | LIEU : $ligne->lieu</li>"; 
+                echo "<li> DATE : $ligne->dateheure | LIEU : $ligne->lieu | AVEC : $ligne->nom</li>"; 
             }
     
         }

@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,18 +18,7 @@
 
 <?php
     include 'connexion.inc.php';
-    $numprop="undefined";
-    
-    if(isset($_GET["nom"]))
-    {
-
-        $prop=$_GET['nom'];
-        $result=$cnx->query("SELECT numprop FROM projet.proprietaire WHERE nom='$prop';");
-        while( $ligne = $result->fetch(PDO::FETCH_OBJ) )
-        {
-            $numprop = $ligne->numprop; 
-        }
-    }
+    $numprop=$_SESSION["numprop"];
 ?>
 
 <body>
@@ -56,8 +49,16 @@
                                 <label for='Ou'>Chez Daktari</label>
                                 <input type='radio' name='Ou'>
                                 <label for='Ou'>Autre part</label>
-                                <input type='text'>
-                            </div>
+                                Animal <select name='animal'>
+                                <option value='' selected='selected'>-- Votre Animal --</option>";
+                                
+                                $result = $cnx->query("SELECT nom,espece,numanimal FROM projet.animaux WHERE numprop='$numprop';");
+                                while( $ligne = $result->fetch(PDO::FETCH_OBJ) )
+                                {
+                                echo "<option value='$ligne->numanimal'>$ligne->nom ($ligne->espece) </option>";
+                                }
+
+                            echo "</select></div>
                             <div>
                                 <label for='Precision'>Precisez le problème :</label>
                                 <textarea name='Precision' id='' cols='30' rows='10'></textarea>
@@ -103,7 +104,7 @@
     if($numprop!="undefined")
     {
         echo"
-                <div class='divJaune'><a href='profil.php?nom=$prop'>Mon compte</a></div>
+                <div class='divJaune'><a href='profil.php'>Mon compte</a></div>
             ";
     }else{
         echo "
@@ -148,7 +149,6 @@
 ?>
 
                 </div>
-
                 <input type="radio" id="INSC" class="Bouton lien" name="menu">
                 <label for="INSC">Inscription</label>
                 <div class="INSC" id="INSCmenu">
