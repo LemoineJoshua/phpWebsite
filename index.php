@@ -44,7 +44,7 @@
 <?php
         if ($numprop!="undefined")
         {
-            echo        "<form method='post'>
+            echo        "<form method='get' action=''>
                         
                             <div>
                                 <label for='date'>Quand ?</label>
@@ -56,7 +56,7 @@
                                 <label for='Ou'>Chez Daktari</label>
                                 <input type='radio' name='Ou'>
                                 <label for='Ou'>Autre part</label>
-                                <input form='text'>
+                                <input type='text'>
                             </div>
                             <div>
                                 <label for='Precision'>Precisez le problème :</label>
@@ -74,7 +74,31 @@
                         <input type='radio' id='RDVCLOSE' class='Bouton Fermer' name='menu'>
                         <label for='RDVCLOSE'><img src='photo/close.png' alt=''></label>
                     </div>
-                </div>                
+                </div> 
+                
+                <?php 
+                    if (isset($_GET['date']) && isset($_GET['Ou']) && isset($_GET['Precision'])) {
+                        if (empty($_GET['date']) || empty($_GET['Ou']) || empty($_GET['Precision'])) {
+                            echo "Veuillez remplir les champs";
+
+                        } else {
+                            $numRDV;
+
+                            $result = $cnx->query("SELECT max(numcons) FROM projet.proprietaire");
+                            while($ligne = $result->fetch(PDO::FETCH_OBJ))
+                            {
+                                $numRDV = $ligne->numcons; 
+                            }
+                            $numRDV++;
+
+                            $date = $_GET['date'];
+                            $Ou = $_GET['Ou'];
+                            $Precision = $_GET['Precision'];
+                            $cnx->exec("INSERT INTO projet.consultation VALUES('$numRDV', '$date', NULL, $Ou, $Precision, NULL, NULL, NULL, NULL)");
+                            $cnx->exec("INSERT INTO projet.consulter VALUES('$numRDV', '$date', NULL, $Ou, $Precision, NULL, NULL, NULL, NULL)");
+                        }
+                    }
+                ?>
 <?php
     if($numprop!="undefined")
     {
@@ -133,16 +157,16 @@
                             <form action="" method='get'>
                                 <div>
                                     <label for="nom">Nom</label>
-                                    <input form="text" name="nom">
+                                    <input type="text" name="nom">
                                     <label for="prenom">Prenom</label>
                                     <input type="text" name="prenom">
                                     <label for="num">Numero de telephone</label>
-                                    <input form="text" name="num">
+                                    <input type="text" name="num">
                                     <label for="adresse">Adresse</label>
                                     <input type="text" name="adresse">
                                     <h3>Pour les entreprise</h3>
                                     <label for="IBAN">IBAN</label>
-                                    <input form="text" name="IBAN">
+                                    <input type="text" name="IBAN">
                                     <label for="SiteWeb">Site web</label>
                                     <input type="text" name="SiteWeb">
                                 </div>
@@ -151,9 +175,11 @@
 
                             <?php
 
-                                if (isset($_GET['nom'], $_GET['prenom'], $_GET['num'], $_GET['adresse'])) {
+                                if (isset($_GET['nom']) && isset($_GET['prenom']) && isset($_GET['num']) && isset($_GET['adresse'])) {
+
                                     if (empty($_GET['nom']) || empty($_GET['prenom']) || empty($_GET['num']) || empty($_GET['adresse'])) {
                                         echo "Veuillez remplir les champs";
+
                                     } else {
 
                                         if (isset($_GET['IBAN'])) {
@@ -167,18 +193,23 @@
                                         } else {
                                             $SiteWeb = "NULL";
                                         }
-                                        function generateRandomString($length = 25) {
-                                            $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-                                            $charactersLength = strlen($characters);
-                                            $randomString = '';
-                                            for ($i = 0; $i < $length; $i++) {
-                                                $randomString .= $characters[rand(0, $charactersLength - 1)];
-                                            }
-                                            return $randomString;
+                                
+                                        $numInsert;
+
+                                        $result = $cnx->query("SELECT max(numprop) FROM projet.proprietaire");
+                                        while($ligne = $result->fetch(PDO::FETCH_OBJ) )
+                                        {
+                                            $numInsert = $ligne->numprop; 
                                         }
-                                        //usage 
-                                        $myRandomString = generateRandomString(10);
-                                        $result = $cnx->query("INSERT INTO projet.proprietaire VALUES(".$myRandomString.",".$_GET['nom'].",".$_GET['prenom'].",".$_GET['adresse'].",".$_GET['num'].",".$IBAN.",".$SiteWeb.")");
+                                        $numInsert++;
+
+                                        $nom = $_GET['nom'];
+                                        $prenom = $_GET['prenom'];
+                                        $adresse = $_GET['adresse'];
+                                        $num = $_GET['num'];
+
+                                        $cnx->exec("INSERT INTO projet.proprietaire VALUES('$myRandomString', '$nom', '$prenom', '$adresse', '$num', '$IBAN', '$SiteWeb')");
+
                                     }
                                 }
 
