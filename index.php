@@ -18,7 +18,11 @@ session_start();
 
 <?php
     include 'connexion.inc.php';
-    $numprop=$_SESSION["numprop"];
+    if(isset($_SESSION["numprop"])){
+        $numprop=$_SESSION["numprop"];
+    }else{
+        $numprop="undefined";
+    }
 ?>
 
 <body>
