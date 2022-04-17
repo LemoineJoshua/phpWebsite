@@ -36,19 +36,24 @@ $_SESSION['numprop']="undefined";
             $rowcount+=1; 
         }
        
-        if($rowcount!=0){
+        if($rowcount!=0 || $prop='Daktari'){
             
             echo "<div class='root'>";
-
             echo "<a href='index.php' class='btn'><img src='photo/accueil 1.png' alt='bouton retour' class='btn'></a>";
 
-            $result = $cnx->query("SELECT numprop,prenom FROM projet.proprietaire WHERE nom='$prop';");
-            while( $ligne = $result->fetch(PDO::FETCH_OBJ) )
+            if($prop!='Daktari')
             {
-                $_SESSION["numprop"]=$ligne->numprop;
-                $prenom=$ligne->prenom; 
+                $result = $cnx->query("SELECT numprop,prenom FROM projet.proprietaire WHERE nom='$prop';");
+                while( $ligne = $result->fetch(PDO::FETCH_OBJ) )
+                {
+                    $_SESSION["numprop"]=$ligne->numprop;
+                    $prenom=$ligne->prenom; 
+                }
+            }else
+            {
+                $prenom='';
+                $numprop=0;
             }
-            
             echo "<h1> Bienvenue $prop $prenom </h1>";
 ?>
 
@@ -58,10 +63,20 @@ $_SESSION['numprop']="undefined";
                 <ul>
 <?php
             $numprop=$_SESSION["numprop"];
-            $result = $cnx->query("SELECT nom,espece FROM projet.animaux WHERE numprop='$numprop';");
+            $request="SELECT nom,espece FROM projet.animaux WHERE numprop='$numprop';";
+            if($prop=='Daktari')
+            {
+                $request="SELECT animaux.nom as animal,espece,proprietaire.nom as prop FROM projet.animaux,projet.proprietaire WHERE animaux.numprop=proprietaire.numprop;";
+            }
+            
+            $result = $cnx->query($request);
             while( $ligne = $result->fetch(PDO::FETCH_OBJ) )
             {
-                echo "<li>$ligne->nom ($ligne->espece)</li>"; 
+                if($prop=='Daktari'){
+                    echo"<li>$ligne->animal ($ligne->espece) | proprietaire : $ligne->prop</li>";
+                }else{
+                    echo"<li>$ligne->nom ($ligne->espece)</li>";
+                }
             }
         
 ?>
@@ -72,7 +87,12 @@ $_SESSION['numprop']="undefined";
                 <h2>Vos rendez-vous</h2>
                 <ul>
 <?php
-            $result = $cnx->query("SELECT lieu, dateheure, a.nom FROM projet.consultation AS c ,projet.consulter AS co , projet.animaux  AS a ,projet.proprietaire AS pro WHERE c.numCons=co.numCons AND co.numanimal=a.numanimal AND a.numprop=pro.numprop AND pro.nom='$prop';");
+            $request="SELECT lieu, dateheure, a.nom FROM projet.consultation AS c ,projet.consulter AS co , projet.animaux  AS a ,projet.proprietaire AS pro WHERE c.numCons=co.numCons AND co.numanimal=a.numanimal AND a.numprop=pro.numprop AND pro.nom='$prop';";
+            if($prop=='Daktari')
+            {
+                $request="SELECT lieu, dateheure, a.nom FROM projet.consultation AS c ,projet.consulter AS co , projet.animaux  AS a ,projet.proprietaire AS pro WHERE c.numCons=co.numCons AND co.numanimal=a.numanimal AND a.numprop=pro.numprop;";
+            }
+            $result = $cnx->query($request);
             while( $ligne = $result->fetch(PDO::FETCH_OBJ) )
             {
                 echo "<li> DATE : $ligne->dateheure | LIEU : $ligne->lieu | AVEC : $ligne->nom</li>"; 
