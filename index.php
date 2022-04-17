@@ -150,34 +150,41 @@ session_start();
         {
             echo "<h3> $ligne->typeconsultation - prix : $ligne->prixactuel </h3> <div class='trait'> </div> ";
         }
-?>
+        echo "</div>";
 
-                </div>
-                <input type="radio" id="INSC" class="Bouton lien" name="menu">
-                <label for="INSC">Inscription</label>
-                <div class="INSC" id="INSCmenu">
-                    <div class="form">
+
+        if($numprop!='undefined')
+        {
+            echo"<div class='divBlanche'><a href='deconnexion.php'>Deconnexion</a></div>";
+        }else
+        {
+        echo"
+                
+                <input type='radio' id='INSC' class='Bouton lien' name='menu'>
+                <label for='INSC'>Inscription</label>
+                <div class='INSC' id='INSCmenu'>
+                    <div class='form'>
                         <h2>INSCRIPTION</h2>
-                            <form action="" method='get'>
+                            <form action='' method='get'>
                                 <div>
-                                    <label for="nom">Nom</label>
-                                    <input type="text" name="nom">
-                                    <label for="prenom">Prenom</label>
-                                    <input type="text" name="prenom">
-                                    <label for="num">Numero de telephone</label>
-                                    <input type="text" name="num">
-                                    <label for="adresse">Adresse</label>
-                                    <input type="text" name="adresse">
+                                    <label for='nom'>Nom</label>
+                                    <input type='text' name='nom'>
+                                    <label for='prenom'>Prenom</label>
+                                    <input type='text' name='prenom'>
+                                    <label for='num'>Numero de telephone</label>
+                                    <input type='text' name='num'>
+                                    <label for='adresse'>Adresse</label>
+                                    <input type='text' name='adresse'>
                                     <h3>Pour les entreprise</h3>
-                                    <label for="IBAN">IBAN</label>
-                                    <input type="text" name="IBAN">
-                                    <label for="SiteWeb">Site web</label>
-                                    <input type="text" name="SiteWeb">
+                                    <label for='IBAN'>IBAN</label>
+                                    <input type='text' name='IBAN'>
+                                    <label for='SiteWeb'>Site web</label>
+                                    <input type='text' name='SiteWeb'>
                                 </div>
-                                <input type="submit" value="Inscription">
-                            </form>
-
-                            <?php
+                                <input type='submit' value='Inscription'>
+                            </form>";
+        
+                            
 
                                 if (isset($_GET['nom']) && isset($_GET['prenom']) && isset($_GET['num']) && isset($_GET['adresse'])) {
 
@@ -216,10 +223,12 @@ session_start();
 
                                     }
                                 }
-
+                            echo"
+                                <input type='radio' id='INSCCLOSE' class='Bouton Fermer' name='menu'>
+                                <label for='INSCCLOSE'><img src='photo/close.png' alt=''></label>";
+        }
                             ?>
-                        <input type="radio" id="INSCCLOSE" class="Bouton Fermer" name="menu">
-                        <label for="INSCCLOSE"><img src="photo/close.png" alt=""></label>
+                        
                     </div>
                 </div>
             </div>   

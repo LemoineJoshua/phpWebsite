@@ -208,6 +208,15 @@ form > div {
     font-family: 'Roboto', sans-serif;
 }
 
+.divBlanche{
+    text-decoration: underline;
+    color: white;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    width: 16vw;
+    margin-top: 10px;
+}
+
 .Fermer + label {
     position: absolute;
     top: 20px;
