@@ -67,6 +67,7 @@ $_SESSION['numprop']="undefined";
             if($prop=='Daktari')
             {
                 $request="SELECT animaux.nom as animal,espece,proprietaire.nom as prop FROM projet.animaux,projet.proprietaire WHERE animaux.numprop=proprietaire.numprop;";
+                $_SESSION["numprop"]=1;
             }
             
             $result = $cnx->query($request);
