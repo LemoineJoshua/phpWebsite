@@ -1,5 +1,5 @@
 <?php
-session_start();
+    session_start();
 ?>
 
 <!DOCTYPE html>
@@ -10,11 +10,10 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="indexstyle.css">
     <title>DAKTARI</title>
-</head>
-
-<style>
+    <style>
     @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@600&family=Roboto:wght@100;700&display=swap');
 </style>
+</head>
 
 <?php
     include 'connexion.inc.php';
@@ -56,10 +55,10 @@ session_start();
                                 Animal <select name='animal'>
                                 <option value='' selected='selected'>-- Votre Animal --</option>";
                                 
-                                $result = $cnx->query("SELECT nom,espece,numanimal FROM projet.animaux WHERE numprop='$numprop';");
-                                while( $ligne = $result->fetch(PDO::FETCH_OBJ) )
+                                $result = $cnx->query("SELECT nom, espece, numanimal FROM projet.animaux WHERE numprop=$numprop");
+                                while($ligne = $result->fetch(PDO::FETCH_OBJ))
                                 {
-                                echo "<option value='$ligne->numanimal'>$ligne->nom ($ligne->espece) </option>";
+                                echo "<option value='.$ligne->numanimal.'>$ligne->nom ($ligne->espece) </option>";
                                 }
 
                             echo "</select></div>
@@ -72,7 +71,7 @@ session_start();
         } else
 
         {
-            echo"<h3>Connectez-vous pour avoir accès à cette fonctionnalité</h3>";
+            echo "<h3>Connectez-vous pour avoir accès à cette fonctionnalité</h3>";
         }
 
 ?>
@@ -89,7 +88,7 @@ session_start();
                         } else {
                             $numRDV;
 
-                            $result = $cnx->query("SELECT max(numcons) FROM projet.proprietaire");
+                            $result = $cnx->query("SELECT max(numcons) FROM projet.proprietair");
                             while($ligne = $result->fetch(PDO::FETCH_OBJ))
                             {
                                 $numRDV = $ligne->numcons; 
@@ -110,7 +109,8 @@ session_start();
         echo"
                 <div class='divJaune'><a href='profil.php'>Mon compte</a></div>
             ";
-    }else{
+    } else {
+
         echo "
                 <input type='radio' id='CONNEC' class='Bouton Jaune' name='menu'>
                 <label for='CONNEC'>Connexions</label>
@@ -196,30 +196,21 @@ session_start();
                                         if (isset($_GET['IBAN'])) {
                                             $IBAN = $_GET['IBAN'];
                                         } else {
-                                            $IBAN = "NULL";
+                                            $IBAN = NULL;
                                         }
 
                                         if (isset($_GET['SiteWeb'])) {
                                             $SiteWeb = $_GET['SiteWeb'];
                                         } else {
-                                            $SiteWeb = "NULL";
+                                            $SiteWeb = NULL;
                                         }
-                                
-                                        $numInsert;
-
-                                        $result = $cnx->query("SELECT max(numprop) FROM projet.proprietaire");
-                                        while($ligne = $result->fetch(PDO::FETCH_OBJ) )
-                                        {
-                                            $numInsert = $ligne->numprop; 
-                                        }
-                                        $numInsert++;
 
                                         $nom = $_GET['nom'];
                                         $prenom = $_GET['prenom'];
                                         $adresse = $_GET['adresse'];
                                         $num = $_GET['num'];
 
-                                        $cnx->exec("INSERT INTO projet.proprietaire VALUES('$myRandomString', '$nom', '$prenom', '$adresse', '$num', '$IBAN', '$SiteWeb')");
+                                        $cnx->exec("INSERT INTO projet.proprietair VALUES(default, '$nom', '$prenom', '$adresse', '$num', '$IBAN', '$SiteWeb')");
 
                                     }
                                 }

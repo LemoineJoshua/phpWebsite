@@ -1,6 +1,6 @@
 <?php
-session_start();
-$_SESSION['numprop']="undefined";
+    session_start();
+    $_SESSION['numprop']="undefined";
 ?>
 
 <!DOCTYPE html>
@@ -25,25 +25,25 @@ $_SESSION['numprop']="undefined";
     }
 
 
-    if($_SESSION["nom"]!=null){
+    if($_SESSION["nom"]!=null) {
 
         
         $prop=$_SESSION["nom"];
-        $result=$cnx->query("SELECT numprop FROM projet.proprietaire WHERE nom='$prop';");
+        $result=$cnx->query("SELECT numprop FROM projet.proprietair WHERE nom='$prop';");
         $rowcount=0;
-        while( $ligne = $result->fetch(PDO::FETCH_OBJ) )
+        while($ligne = $result->fetch(PDO::FETCH_OBJ))
         {
             $rowcount+=1; 
         }
        
-        if($rowcount!=0 || $prop='Daktari'){
+        if($rowcount != 0 || $prop =='Daktari') {
             
             echo "<div class='root'>";
             echo "<a href='index.php' class='btn'><img src='photo/accueil 1.png' alt='bouton retour' class='btn'></a>";
 
             if($prop!='Daktari')
             {
-                $result = $cnx->query("SELECT numprop,prenom FROM projet.proprietaire WHERE nom='$prop';");
+                $result = $cnx->query("SELECT numprop,prenom FROM projet.proprietair WHERE nom='$prop';");
                 while( $ligne = $result->fetch(PDO::FETCH_OBJ) )
                 {
                     $_SESSION["numprop"]=$ligne->numprop;
@@ -66,7 +66,7 @@ $_SESSION['numprop']="undefined";
             $request="SELECT nom,espece FROM projet.animaux WHERE numprop='$numprop';";
             if($prop=='Daktari')
             {
-                $request="SELECT animaux.nom as animal,espece,proprietaire.nom as prop FROM projet.animaux,projet.proprietaire WHERE animaux.numprop=proprietaire.numprop;";
+                $request="SELECT animaux.nom as animal,espece,proprietair.nom as prop FROM projet.animaux,projet.proprietair WHERE animaux.numprop=proprietair.numprop;";
                 $_SESSION["numprop"]=1;
             }
             
@@ -74,7 +74,7 @@ $_SESSION['numprop']="undefined";
             while( $ligne = $result->fetch(PDO::FETCH_OBJ) )
             {
                 if($prop=='Daktari'){
-                    echo"<li>$ligne->animal ($ligne->espece) | proprietaire : $ligne->prop</li>";
+                    echo"<li>$ligne->animal ($ligne->espece) | proprietair : $ligne->prop</li>";
                 }else{
                     echo"<li>$ligne->nom ($ligne->espece)</li>";
                 }
@@ -82,19 +82,23 @@ $_SESSION['numprop']="undefined";
         
 ?>
                 </ul>
+<?php 
+                echo "<a href='ajoutAnimal.php?numprop='$numprop>Ajouter un animal</a>";
+?>
+                
             </div>
             
             <div class="vBox">
                 <h2>Vos rendez-vous</h2>
                 <ul>
 <?php
-            $request="SELECT lieu, dateheure, a.nom FROM projet.consultation AS c ,projet.consulter AS co , projet.animaux  AS a ,projet.proprietaire AS pro WHERE c.numCons=co.numCons AND co.numanimal=a.numanimal AND a.numprop=pro.numprop AND pro.nom='$prop';";
+            $request="SELECT lieu, dateheure, a.nom FROM projet.consultation AS c , projet.consulter AS co , projet.animaux  AS a , projet.proprietair AS pro WHERE c.numCons=co.numCons AND co.numanimal = a.numanimal AND a.numprop=pro.numprop AND pro.nom='$prop';";
             if($prop=='Daktari')
             {
-                $request="SELECT lieu, dateheure, a.nom FROM projet.consultation AS c ,projet.consulter AS co , projet.animaux  AS a ,projet.proprietaire AS pro WHERE c.numCons=co.numCons AND co.numanimal=a.numanimal AND a.numprop=pro.numprop;";
+                $request="SELECT lieu, dateheure, a.nom FROM projet.consultation AS c ,projet.consulter AS co , projet.animaux  AS a ,projet.proprietair AS pro WHERE c.numCons=co.numCons AND co.numanimal=a.numanimal AND a.numprop=pro.numprop;";
             }
             $result = $cnx->query($request);
-            while( $ligne = $result->fetch(PDO::FETCH_OBJ) )
+            while( $ligne = $result->fetch(PDO::FETCH_OBJ))
             {
                 echo "<li> DATE : $ligne->dateheure | LIEU : $ligne->lieu | AVEC : $ligne->nom</li>"; 
             }
