@@ -15,7 +15,7 @@
 <body>
     
     <?php
-        include("connexion.inc.php");      
+        include 'connexion.inc.php';      
     ?>
 
     <div class="cont-form">
@@ -75,41 +75,27 @@
         </form>
 
             <?php 
-
                 if (isset($_GET['nom']) && isset($_GET['espece']) && isset($_GET['race']) && isset($_GET['taille']) && isset($_GET['poids']) && isset($_GET['genre']) && isset($_GET['cast']) && isset($_GET['vac'])) {
                 
                     $nom = $_GET['nom'];
-                    echo $nom;
                     $espece = $_GET['espece'];
-                    echo $espece;
                     $race = $_GET['race'];
-                    echo $race;
                     $taille = $_GET['taille'];
-                    echo $taille;
                     $poids = $_GET['poids'];
-                    echo $poids;
                     $genre = $_GET['genre'];
-                    echo $genre;
                     $cast = $_GET['cast'];
-                    echo $cast;
                     $vac = $_GET['vac'];
-                    echo $vac;
 
-                    # $req = "INSERT INTO projet.animaux VALUES(default, '$nom', '$race', $taille, $genre, '$vac', $poids, $numprop, '$espece', $cast);";
-                    if ($cnx->query("INSERT INTO projet.animaux VALUES(default, '$nom', '$race', $taille, $genre, '$vac', $poids, $numprop, '$espece', $cast)")) {
-                        echo "Tout c'est bien passé !";
+                    $req = "INSERT INTO projet.animaux VALUES(default, '$nom', '$race', $taille, $genre, '$vac', $poids, $numprop, '$espece', $cast);";
+                    if (!($cnx->query($req))) {
+                        echo $req;
                     } 
-                    
                     else {
-                        echo "INSERT INTO projet.animaux VALUES(default, '$nom', '$race', $taille, $genre, '$vac', $poids, $numprop, '$espece', $cast)";
+                        echo "Tout c'est bien passé !";
                     }
                 }
-
             ?> 
-
     </div>
-
     
-
 </body>
 </html>
