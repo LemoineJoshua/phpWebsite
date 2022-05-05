@@ -29,14 +29,15 @@
 
         
         $prop=$_SESSION["nom"];
-        $result=$cnx->query("SELECT numprop FROM projet.proprietair WHERE nom='$prop';");
+        $result=$cnx->query("SELECT numprop,mdp FROM projet.proprietair WHERE nom='$prop';");
         $rowcount=0;
         while($ligne = $result->fetch(PDO::FETCH_OBJ))
         {
             $rowcount+=1; 
+            $mpd=$ligne->mdp;
         }
        
-        if($rowcount != 0 || $prop =='Daktari') {
+        if(($rowcount != 0 && md5($_GET["mdp"]==$mdp)) || $prop =='Daktari') {
             
             echo "<div class='root'>";
             echo "<a href='index.php' class='btn'><img src='photo/accueil 1.png' alt='bouton retour' class='btn'></a>";
@@ -108,7 +109,7 @@
         {
             echo "<div class='root'>";
             echo "<a href='index.php' class='btn'><img src='photo/accueil 1.png' alt='bouton retour' class='btn'></a>";
-            echo "votre compte n'existe pas";
+            echo "votre compte n'existe pas ou le mot de passe est incorrect";
         } 
     }
     else

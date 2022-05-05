@@ -122,7 +122,7 @@
                                 <label for='nom'>Votre nom : </label>
                                 <input type='text' id='nom' name='nom'>
                                 <label for='mdp'>Mot de passe</label>
-                                <input type='text'>
+                                <input type='text' name='mdp'>
                             </div>
                                 <input type='submit' value='Connexion'>
                         </form>
