@@ -4,15 +4,18 @@
     box-sizing: border-box;
 }
 
-body {
-    background-color: #281A1F;
+::selection {
+    background-color: #bc9a1e77;
 }
 
+body {
+    background-color: #281A1F;
+    font-family: 'Oswald', sans-serif;
+}
 
 .cont-form {
     width: 100%;
     height: 100vh;
-    border: 1px solid red;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -45,3 +48,5 @@ form > div > div {
     display: flex;
     justify-content: space-between;
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@600&family=Roboto:wght@100;700&display=swap');

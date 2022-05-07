@@ -86,12 +86,15 @@
                     $cast = $_GET['cast'];
                     $vac = $_GET['vac'];
 
-                    $req = "INSERT INTO projet.animaux VALUES(default, '$nom', '$race', $taille, $genre, '$vac', $poids, $numprop, '$espece', $cast);";
+                    $req = "INSERT INTO projet.animaux 
+                            (nom, race, taille, genre, vaccinations, poids, numprop, espece, castration) 
+                            VALUES
+                            ('$nom', '$race', $taille, $genre, '$vac', $poids, $numprop, '$espece', $cast)";
+
                     if (!($cnx->query($req))) {
                         echo $req;
-                    } 
-                    else {
-                        echo "Tout c'est bien passé !";
+                    } else {
+                        header("location : profil.php");
                     }
                 }
             ?> 
