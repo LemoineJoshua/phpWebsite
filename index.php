@@ -43,16 +43,31 @@
             echo        "<form method='get' action=''>
                         
                             <div>
-                                <label for='date'>Quand ?</label>
+                                <b><label for='date'>Quand ?</label></b>
                                 <input type='date' name='date'>
                             </div>
                             <div>
-                                <label for='Ou'>Où ?</label></b>
-                                <input type='radio' name='Ou'>
-                                <label for='Ou'>Chez Daktari</label>
-                                <input type='radio' name='Ou'>
-                                <label for='Ou'>Autre part</label>
-                                Animal <select name='animal'>
+                                <b><label for='Ou'>Où ?</label></b>
+                                <div>
+                                <input type='radio' name='Ou' value=' en cabinet' id='Daktari'>
+                                <label for='Daktari'>Chez Daktari</label>
+                                </div>
+                                <div>
+                                <input type='radio' name='Ou' value=' hors cabinet' id='horsCabinet'>
+                                <label for='horsCabinet'>Autre part</label>
+                                </div>
+                                <br>
+                                <b><label for='Type'>Type de RDV ?</label></b>
+                                <div>
+                                <input type='radio' name='Type' value='Basique' id='basique'>
+                                <label for='basique'>Basique</label>
+                                </div>
+                                <div>
+                                <input type='radio' name='Type' value='Ostéopathique' id='osteo'>
+                                <label for='osteo'>Ostéopathique</label>
+                                </div>
+                                <br>
+                                Animal<select name='animal'>
                                 <option value='' selected='selected'>-- Votre Animal --</option>";
                                 
                                 $result = $cnx->query("SELECT nom, espece, numanimal FROM projet.animaux WHERE numprop=$numprop");
@@ -62,6 +77,7 @@
                                 }
 
                             echo "</select></div>
+                            <br>
                             <div>
                                 <label for='Precision'>Precisez le problème :</label>
                                 <textarea name='Precision' id='' cols='30' rows='10'></textarea>
@@ -81,25 +97,24 @@
                 </div> 
                 
                 <?php 
-                    if (isset($_GET['date']) && isset($_GET['Ou']) && isset($_GET['Precision'])) {
-                        if (empty($_GET['date']) || empty($_GET['Ou']) || empty($_GET['Precision'])) {
+                    if (isset($_GET['date']) && isset($_GET['Ou']) && isset($_GET['Precision']) && isset($_GET['Type'])) {
+                        if (empty($_GET['date']) || empty($_GET['Ou']) || empty($_GET['Precision']) || empty($_GET['Type'])) {
                             echo "Veuillez remplir les champs";
 
                         } else {
-                            $numRDV;
-
-                            $result = $cnx->query("SELECT max(numcons) FROM projet.proprietair");
-                            while($ligne = $result->fetch(PDO::FETCH_OBJ))
-                            {
-                                $numRDV = $ligne->numcons; 
-                            }
-                            $numRDV++;
-
                             $date = $_GET['date'];
+
                             $Ou = $_GET['Ou'];
+                            
                             $Precision = $_GET['Precision'];
-                            $cnx->exec("INSERT INTO projet.consultation VALUES('$numRDV', '$date', NULL, $Ou, $Precision, NULL, NULL, NULL, NULL)");
-                            $cnx->exec("INSERT INTO projet.consulter VALUES('$numRDV', '$date', NULL, $Ou, $Precision, NULL, NULL, NULL, NULL)");
+                            $Animal = $_GET['animal'];
+
+                            $typecons = $_GET['Type'].$_GET['Ou'];
+                            $numtarif = $cnx->query("SELECT numtarif FROM projet.tarifConsultation WHERE typeconsultation = '$typecons'")->fetch(PDO::FETCH_OBJ)->numtarif;
+
+                            $result = $cnx->query("INSERT INTO projet.consultation VALUES(default, '$date', NULL, '$Ou', '$Precision', NULL, NULL, '$numtarif', NULL) RETURNING numcons");
+                            $numcons = $result->fetch(PDO::FETCH_OBJ)->numcons;
+                            $cnx->exec("INSERT INTO projet.consulter VALUES($Animal, $numcons)");
                         }
                     }
                 ?>

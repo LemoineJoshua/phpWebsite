@@ -20,14 +20,13 @@
 
     include 'connexion.inc.php';
 
-    if(isset($_GET["nom"])){
+    if (isset($_GET["nom"])){
+
         $_SESSION["nom"]=$_GET["nom"];
     }
 
-
-    if($_SESSION["nom"]!=null) {
-
-        
+    if ($_SESSION["nom"]!=null) {
+  
         $prop=$_SESSION["nom"];
         $result=$cnx->query("SELECT numprop,mdp FROM projet.proprietair WHERE nom='$prop';");
         $rowcount=0;
