@@ -21,24 +21,24 @@
     include 'connexion.inc.php';
 
     if (isset($_GET["nom"])){
-
+        $_SESSION["connex"]=FALSE;
         $_SESSION["nom"]=$_GET["nom"];
     }
 
     if ($_SESSION["nom"]!=null) {
   
         $prop=$_SESSION["nom"];
-        $result=$cnx->query("SELECT numprop,mdp FROM projet.proprietair WHERE nom='$prop';");
-        $rowcount=0;
-        $mdp=''
-        while($ligne = $result->fetch(PDO::FETCH_OBJ))
-        {
-            $rowcount+=1; 
-            $mpd=$ligne->mdp;
+        $mot_de_pass='';
+        
+        if($prop!='Daktari'){
+            $result=$cnx->query("SELECT mdp FROM projet.proprietair WHERE nom='$prop';");
+            $ligne = $result->fetch(PDO::FETCH_OBJ);
+            $mot_de_pass=$ligne->mdp;
         }
-       
-        if(($rowcount != 0 && md5($_GET["mdp"])==$mdp) || $prop =='Daktari') {
-            
+
+        if($_SESSION["connex"] || (md5($_GET["mdp"])==$mot_de_pass) || $prop =='Daktari' ) {
+            $_SESSION["connex"]=TRUE;
+           
             echo "<div class='root'>";
             echo "<a href='index.php' class='btn'><img src='photo/accueil 1.png' alt='bouton retour' class='btn'></a>";
 
