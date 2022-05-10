@@ -30,13 +30,14 @@
         $prop=$_SESSION["nom"];
         $result=$cnx->query("SELECT numprop,mdp FROM projet.proprietair WHERE nom='$prop';");
         $rowcount=0;
+        $mdp=''
         while($ligne = $result->fetch(PDO::FETCH_OBJ))
         {
             $rowcount+=1; 
             $mpd=$ligne->mdp;
         }
        
-        if(($rowcount != 0 && md5($_GET["mdp"]==$mdp)) || $prop =='Daktari') {
+        if(($rowcount != 0 && md5($_GET["mdp"])==$mdp) || $prop =='Daktari') {
             
             echo "<div class='root'>";
             echo "<a href='index.php' class='btn'><img src='photo/accueil 1.png' alt='bouton retour' class='btn'></a>";
