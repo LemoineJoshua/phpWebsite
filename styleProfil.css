@@ -6,6 +6,11 @@ body{
     padding:20px;
     margin:0;
 }
+
+a {
+    color: white;
+}
+
 .root{
     display: flex;
     flex-direction: column;

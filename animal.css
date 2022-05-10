@@ -1,0 +1,103 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: white;
+    font-family: 'Oswald', sans-serif;
+}
+
+body {
+    background-color: #281A1F;
+    padding: 20px;
+}
+
+.border {
+    border: 3px solid white;
+    height: 90vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+::selection {
+    background-color: #bc9a1e77;
+}
+
+.cont {
+    display: flex;
+    justify-content: center;
+    height: 80vh;
+    width: 100%;
+}
+
+.cont form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+}
+
+.hbox {
+    display: flex;
+    flex-direction: row;
+    gap: 100px;
+    margin-bottom: 40px;
+}
+
+.vbox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: max-content;
+    height: fit-content;
+}
+
+.vbox > div,
+.hbox > div {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 7px;
+}
+
+.vbox > div > label,
+.hbox > div > label{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+input[type=text],
+input[type=number],
+select, 
+option {
+    background: none;
+    border: 1px solid white;
+    border-radius: 5px;
+    width: 200px;
+    height: 30px;
+}
+
+option {
+    color: black;
+}
+
+h2 {
+    font-size: 2.5em;
+    margin-bottom: 50px;
+}
+
+input[type=submit] {
+    width: 100px;
+    height: 30px;
+    border: 1px solid white;
+    border-radius: 5px;
+    background: none;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+input[type=submit]:hover {
+    background: #BC9A1E;
+    transition: 0.5s ease-out;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@600&family=Roboto:wght@100;700&display=swap');
