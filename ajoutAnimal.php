@@ -72,8 +72,6 @@
 
             <input type="submit" value="Valider">
 
-        </form>
-
             <?php 
                 if (isset($_GET['nom']) && isset($_GET['espece']) && isset($_GET['race']) && isset($_GET['taille']) && isset($_GET['poids']) && isset($_GET['genre']) && isset($_GET['cast']) && isset($_GET['vac'])) {
                 
@@ -96,8 +94,9 @@
                     } else {
                         header("location : profil.php");
                     }
-                }
+                }         
             ?> 
+        </form>
     </div>
     
 </body>
