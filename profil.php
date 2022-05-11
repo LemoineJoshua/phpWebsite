@@ -20,9 +20,9 @@
 
     include 'connexion.inc.php';
 
-    if (isset($_GET["nom"])){
+    if (isset($_POST["nom"])){
         $_SESSION["connex"]=FALSE;
-        $_SESSION["nom"]=$_GET["nom"];
+        $_SESSION["nom"]=$_POST["nom"];
     }
 
     if ($_SESSION["nom"]!=null) {
@@ -36,7 +36,7 @@
             $mot_de_pass=$ligne->mdp;
         }
 
-        if($_SESSION["connex"] || (md5($_GET["mdp"])==$mot_de_pass) || $prop =='Daktari' ) {
+        if($_SESSION["connex"] || (md5($_POST["mdp"])==$mot_de_pass) || $prop =='Daktari' ) {
             $_SESSION["connex"]=TRUE;
            
             echo "<div class='root'>";
