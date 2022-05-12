@@ -29,8 +29,10 @@ a {
     display: flex;
     flex-direction: column;
     width:50%;
+    height: 50vh;
     text-align: center;
     align-items: center;
+    overflow-y: scroll;
 }
 
 h1 {
