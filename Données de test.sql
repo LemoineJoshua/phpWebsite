@@ -16,20 +16,20 @@ SET client_min_messages = warning;
 SET row_security = off;
 
 --
--- Name: projet; Type: SCHEMA; Schema: -; Owner: joshua.lemoine
+-- Name: projet; Type: SCHEMA; Schema: -;
 --
 
 CREATE SCHEMA projet;
 
 
-ALTER SCHEMA projet OWNER TO "joshua.lemoine";
+
 
 SET default_tablespace = '';
 
 SET default_with_oids = false;
 
 --
--- Name: animaux; Type: TABLE; Schema: projet; Owner: joshua.lemoine
+-- Name: animaux; Type: TABLE; Schema: projet;
 --
 
 CREATE TABLE projet.animaux (
@@ -46,10 +46,10 @@ CREATE TABLE projet.animaux (
 );
 
 
-ALTER TABLE projet.animaux OWNER TO "joshua.lemoine";
+
 
 --
--- Name: anim_numanimal_seq; Type: SEQUENCE; Schema: projet; Owner: joshua.lemoine
+-- Name: anim_numanimal_seq; Type: SEQUENCE; Schema: projet;
 --
 
 CREATE SEQUENCE projet.anim_numanimal_seq
@@ -60,17 +60,17 @@ CREATE SEQUENCE projet.anim_numanimal_seq
     CACHE 1;
 
 
-ALTER TABLE projet.anim_numanimal_seq OWNER TO "joshua.lemoine";
+
 
 --
--- Name: anim_numanimal_seq; Type: SEQUENCE OWNED BY; Schema: projet; Owner: joshua.lemoine
+-- Name: anim_numanimal_seq; Type: SEQUENCE OWNED BY; Schema: projet;
 --
 
 ALTER SEQUENCE projet.anim_numanimal_seq OWNED BY projet.animaux.numanimal;
 
 
 --
--- Name: anim_numprop_seq; Type: SEQUENCE; Schema: projet; Owner: joshua.lemoine
+-- Name: anim_numprop_seq; Type: SEQUENCE; Schema: projet;
 --
 
 CREATE SEQUENCE projet.anim_numprop_seq
@@ -81,17 +81,17 @@ CREATE SEQUENCE projet.anim_numprop_seq
     CACHE 1;
 
 
-ALTER TABLE projet.anim_numprop_seq OWNER TO "joshua.lemoine";
+
 
 --
--- Name: anim_numprop_seq; Type: SEQUENCE OWNED BY; Schema: projet; Owner: joshua.lemoine
+-- Name: anim_numprop_seq; Type: SEQUENCE OWNED BY; Schema: projet
 --
 
 ALTER SEQUENCE projet.anim_numprop_seq OWNED BY projet.animaux.numprop;
 
 
 --
--- Name: seq_consultation; Type: SEQUENCE; Schema: projet; Owner: joshua.lemoine
+-- Name: seq_consultation; Type: SEQUENCE; Schema: projet; Owner
 --
 
 CREATE SEQUENCE projet.seq_consultation
@@ -102,10 +102,9 @@ CREATE SEQUENCE projet.seq_consultation
     CACHE 1;
 
 
-ALTER TABLE projet.seq_consultation OWNER TO "joshua.lemoine";
 
 --
--- Name: consultation; Type: TABLE; Schema: projet; Owner: joshua.lemoine
+-- Name: consultation; Type: TABLE; Schema: projet;
 --
 
 CREATE TABLE projet.consultation (
@@ -121,10 +120,9 @@ CREATE TABLE projet.consultation (
 );
 
 
-ALTER TABLE projet.consultation OWNER TO "joshua.lemoine";
 
 --
--- Name: consulter; Type: TABLE; Schema: projet; Owner: joshua.lemoine
+-- Name: consulter; Type: TABLE; Schema: projet;
 --
 
 CREATE TABLE projet.consulter (
@@ -133,10 +131,9 @@ CREATE TABLE projet.consulter (
 );
 
 
-ALTER TABLE projet.consulter OWNER TO "joshua.lemoine";
 
 --
--- Name: coutmanip; Type: TABLE; Schema: projet; Owner: joshua.lemoine
+-- Name: coutmanip; Type: TABLE; Schema: projet;
 --
 
 CREATE TABLE projet.coutmanip (
@@ -145,10 +142,9 @@ CREATE TABLE projet.coutmanip (
 );
 
 
-ALTER TABLE projet.coutmanip OWNER TO "joshua.lemoine";
 
 --
--- Name: manipulation; Type: TABLE; Schema: projet; Owner: joshua.lemoine
+-- Name: manipulation; Type: TABLE; Schema: projet;
 --
 
 CREATE TABLE projet.manipulation (
@@ -159,10 +155,10 @@ CREATE TABLE projet.manipulation (
 );
 
 
-ALTER TABLE projet.manipulation OWNER TO "joshua.lemoine";
+
 
 --
--- Name: prescription; Type: TABLE; Schema: projet; Owner: joshua.lemoine
+-- Name: prescription; Type: TABLE; Schema: projet;
 --
 
 CREATE TABLE projet.prescription (
@@ -173,10 +169,10 @@ CREATE TABLE projet.prescription (
 );
 
 
-ALTER TABLE projet.prescription OWNER TO "joshua.lemoine";
+
 
 --
--- Name: proprietair; Type: TABLE; Schema: projet; Owner: joshua.lemoine
+-- Name: proprietair; Type: TABLE; Schema: projet;
 --
 
 CREATE TABLE projet.proprietair (
@@ -191,10 +187,10 @@ CREATE TABLE projet.proprietair (
 );
 
 
-ALTER TABLE projet.proprietair OWNER TO "joshua.lemoine";
+
 
 --
--- Name: prop_numprop_seq; Type: SEQUENCE; Schema: projet; Owner: joshua.lemoine
+-- Name: prop_numprop_seq; Type: SEQUENCE; Schema: projet;
 --
 
 CREATE SEQUENCE projet.prop_numprop_seq
@@ -205,17 +201,17 @@ CREATE SEQUENCE projet.prop_numprop_seq
     CACHE 1;
 
 
-ALTER TABLE projet.prop_numprop_seq OWNER TO "joshua.lemoine";
+
 
 --
--- Name: prop_numprop_seq; Type: SEQUENCE OWNED BY; Schema: projet; Owner: joshua.lemoine
+-- Name: prop_numprop_seq; Type: SEQUENCE OWNED BY; Schema: projet;
 --
 
 ALTER SEQUENCE projet.prop_numprop_seq OWNED BY projet.proprietair.numprop;
 
 
 --
--- Name: tarifconsultation; Type: TABLE; Schema: projet; Owner: joshua.lemoine
+-- Name: tarifconsultation; Type: TABLE; Schema: projet;
 --
 
 CREATE TABLE projet.tarifconsultation (
@@ -226,10 +222,10 @@ CREATE TABLE projet.tarifconsultation (
 );
 
 
-ALTER TABLE projet.tarifconsultation OWNER TO "joshua.lemoine";
+
 
 --
--- Name: tarifdate; Type: TABLE; Schema: projet; Owner: joshua.lemoine
+-- Name: tarifdate; Type: TABLE; Schema: projet
 --
 
 CREATE TABLE projet.tarifdate (
@@ -239,10 +235,10 @@ CREATE TABLE projet.tarifdate (
 );
 
 
-ALTER TABLE projet.tarifdate OWNER TO "joshua.lemoine";
+
 
 --
--- Name: traitements; Type: TABLE; Schema: projet; Owner: joshua.lemoine
+-- Name: traitements; Type: TABLE; Schema: projet;
 --
 
 CREATE TABLE projet.traitements (
@@ -252,31 +248,31 @@ CREATE TABLE projet.traitements (
 );
 
 
-ALTER TABLE projet.traitements OWNER TO "joshua.lemoine";
+
 
 --
--- Name: animaux numanimal; Type: DEFAULT; Schema: projet; Owner: joshua.lemoine
+-- Name: animaux numanimal; Type: DEFAULT; Schema: projet;
 --
 
 ALTER TABLE ONLY projet.animaux ALTER COLUMN numanimal SET DEFAULT nextval('projet.anim_numanimal_seq'::regclass);
 
 
 --
--- Name: animaux numprop; Type: DEFAULT; Schema: projet; Owner: joshua.lemoine
+-- Name: animaux numprop; Type: DEFAULT; Schema: projet;
 --
 
 ALTER TABLE ONLY projet.animaux ALTER COLUMN numprop SET DEFAULT nextval('projet.anim_numprop_seq'::regclass);
 
 
 --
--- Name: proprietair numprop; Type: DEFAULT; Schema: projet; Owner: joshua.lemoine
+-- Name: proprietair numprop; Type: DEFAULT; Schema: projet;
 --
 
 ALTER TABLE ONLY projet.proprietair ALTER COLUMN numprop SET DEFAULT nextval('projet.prop_numprop_seq'::regclass);
 
 
 --
--- Data for Name: animaux; Type: TABLE DATA; Schema: projet; Owner: joshua.lemoine
+-- Data for Name: animaux; Type: TABLE DATA; Schema: projet;
 --
 
 INSERT INTO projet.animaux VALUES (3, 'Thierry', 'Couleuvre', 250, 0, 'Aucun', 2.30, 1, 'Serpent', 0);
@@ -294,7 +290,7 @@ INSERT INTO projet.animaux VALUES (19, 'Lucas', 'informaticien', 180, 0, 'Ancun'
 
 
 --
--- Data for Name: consultation; Type: TABLE DATA; Schema: projet; Owner: joshua.lemoine
+-- Data for Name: consultation; Type: TABLE DATA; Schema: projet;
 --
 
 INSERT INTO projet.consultation VALUES (1, '2021-08-11 09:10:37', 30, 'Cabinet', 'Douleur à la machoire', 'Après une observation et un nettoyage des dents le problème semble avoir disparu', 'Dentition abimée', '0000000001', NULL);
@@ -308,7 +304,7 @@ INSERT INTO projet.consultation VALUES (10, '2022-05-15 00:00:00', NULL, ' en ca
 
 
 --
--- Data for Name: consulter; Type: TABLE DATA; Schema: projet; Owner: joshua.lemoine
+-- Data for Name: consulter; Type: TABLE DATA; Schema: projet;
 --
 
 INSERT INTO projet.consulter VALUES (6, 1);
@@ -319,7 +315,7 @@ INSERT INTO projet.consulter VALUES (3, 5);
 
 
 --
--- Data for Name: coutmanip; Type: TABLE DATA; Schema: projet; Owner: joshua.lemoine
+-- Data for Name: coutmanip; Type: TABLE DATA; Schema: projet;
 --
 
 INSERT INTO projet.coutmanip VALUES (3, '00000002  ');
@@ -330,7 +326,7 @@ INSERT INTO projet.coutmanip VALUES (5, '00000005  ');
 
 
 --
--- Data for Name: manipulation; Type: TABLE DATA; Schema: projet; Owner: joshua.lemoine
+-- Data for Name: manipulation; Type: TABLE DATA; Schema: projet;
 --
 
 INSERT INTO projet.manipulation VALUES ('00000001', 15.00, 20, 'Massage de l épaule');
@@ -341,7 +337,7 @@ INSERT INTO projet.manipulation VALUES ('00000005', 50.00, 5, 'Palpation de l es
 
 
 --
--- Data for Name: prescription; Type: TABLE DATA; Schema: projet; Owner: joshua.lemoine
+-- Data for Name: prescription; Type: TABLE DATA; Schema: projet;
 --
 
 INSERT INTO projet.prescription VALUES (4, '0000000001', '2 doses par jour', '1 mois');
@@ -349,7 +345,7 @@ INSERT INTO projet.prescription VALUES (5, '0000000004', '3 doses par jour', '3 
 
 
 --
--- Data for Name: proprietair; Type: TABLE DATA; Schema: projet; Owner: joshua.lemoine
+-- Data for Name: proprietair; Type: TABLE DATA; Schema: projet;
 --
 
 INSERT INTO projet.proprietair VALUES (1, 'Pascal', 'Thierry', '4 rue des choux-fleurs', '0625943518', NULL, NULL, 'ca693a8ccfa2cd3464d532afdfab31c5');
@@ -359,7 +355,7 @@ INSERT INTO projet.proprietair VALUES (4, 'Armstrong', 'Chad', 'America', '12345
 
 
 --
--- Data for Name: tarifconsultation; Type: TABLE DATA; Schema: projet; Owner: joshua.lemoine
+-- Data for Name: tarifconsultation; Type: TABLE DATA; Schema: projet;
 --
 
 INSERT INTO projet.tarifconsultation VALUES ('0000000001', 'Basique en cabinet', NULL, 40.22);
@@ -369,7 +365,7 @@ INSERT INTO projet.tarifconsultation VALUES ('0000000004', 'Ostéopathique hors 
 
 
 --
--- Data for Name: tarifdate; Type: TABLE DATA; Schema: projet; Owner: joshua.lemoine
+-- Data for Name: tarifdate; Type: TABLE DATA; Schema: projet;
 --
 
 INSERT INTO projet.tarifdate VALUES ('0000000001', '1995-01-01', 15.00);
@@ -382,7 +378,7 @@ INSERT INTO projet.tarifdate VALUES ('0000000004', '2021-12-07', 69.99);
 
 
 --
--- Data for Name: traitements; Type: TABLE DATA; Schema: projet; Owner: joshua.lemoine
+-- Data for Name: traitements; Type: TABLE DATA; Schema: projet;
 --
 
 INSERT INTO projet.traitements VALUES ('0000000001', 'Aspirine', '500mg / L');
@@ -392,35 +388,35 @@ INSERT INTO projet.traitements VALUES ('0000000004', 'Smecta', '10g/L');
 
 
 --
--- Name: anim_numanimal_seq; Type: SEQUENCE SET; Schema: projet; Owner: joshua.lemoine
+-- Name: anim_numanimal_seq; Type: SEQUENCE SET; Schema: projet;
 --
 
 SELECT pg_catalog.setval('projet.anim_numanimal_seq', 21, true);
 
 
 --
--- Name: anim_numprop_seq; Type: SEQUENCE SET; Schema: projet; Owner: joshua.lemoine
+-- Name: anim_numprop_seq; Type: SEQUENCE SET; Schema: projet;
 --
 
 SELECT pg_catalog.setval('projet.anim_numprop_seq', 1, false);
 
 
 --
--- Name: prop_numprop_seq; Type: SEQUENCE SET; Schema: projet; Owner: joshua.lemoine
+-- Name: prop_numprop_seq; Type: SEQUENCE SET; Schema: projet;
 --
 
 SELECT pg_catalog.setval('projet.prop_numprop_seq', 6, true);
 
 
 --
--- Name: seq_consultation; Type: SEQUENCE SET; Schema: projet; Owner: joshua.lemoine
+-- Name: seq_consultation; Type: SEQUENCE SET; Schema: projet;
 --
 
 SELECT pg_catalog.setval('projet.seq_consultation', 10, true);
 
 
 --
--- Name: consultation consultation_pkey; Type: CONSTRAINT; Schema: projet; Owner: joshua.lemoine
+-- Name: consultation consultation_pkey; Type: CONSTRAINT; Schema: projet;
 --
 
 ALTER TABLE ONLY projet.consultation
@@ -428,7 +424,7 @@ ALTER TABLE ONLY projet.consultation
 
 
 --
--- Name: consulter consulter_pkey; Type: CONSTRAINT; Schema: projet; Owner: joshua.lemoine
+-- Name: consulter consulter_pkey; Type: CONSTRAINT; Schema: projet;
 --
 
 ALTER TABLE ONLY projet.consulter
@@ -436,7 +432,7 @@ ALTER TABLE ONLY projet.consulter
 
 
 --
--- Name: coutmanip coutmanip_pkey; Type: CONSTRAINT; Schema: projet; Owner: joshua.lemoine
+-- Name: coutmanip coutmanip_pkey; Type: CONSTRAINT; Schema: projet;
 --
 
 ALTER TABLE ONLY projet.coutmanip
@@ -444,7 +440,7 @@ ALTER TABLE ONLY projet.coutmanip
 
 
 --
--- Name: manipulation manipulation_pkey; Type: CONSTRAINT; Schema: projet; Owner: joshua.lemoine
+-- Name: manipulation manipulation_pkey; Type: CONSTRAINT; Schema: projet;
 --
 
 ALTER TABLE ONLY projet.manipulation
@@ -452,7 +448,7 @@ ALTER TABLE ONLY projet.manipulation
 
 
 --
--- Name: animaux pk_anim; Type: CONSTRAINT; Schema: projet; Owner: joshua.lemoine
+-- Name: animaux pk_anim; Type: CONSTRAINT; Schema: projet;
 --
 
 ALTER TABLE ONLY projet.animaux
@@ -460,7 +456,7 @@ ALTER TABLE ONLY projet.animaux
 
 
 --
--- Name: proprietair pk_prop; Type: CONSTRAINT; Schema: projet; Owner: joshua.lemoine
+-- Name: proprietair pk_prop; Type: CONSTRAINT; Schema: projet;
 --
 
 ALTER TABLE ONLY projet.proprietair
@@ -468,7 +464,7 @@ ALTER TABLE ONLY projet.proprietair
 
 
 --
--- Name: prescription prescription_pkey; Type: CONSTRAINT; Schema: projet; Owner: joshua.lemoine
+-- Name: prescription prescription_pkey; Type: CONSTRAINT; Schema: projet;
 --
 
 ALTER TABLE ONLY projet.prescription
@@ -476,7 +472,7 @@ ALTER TABLE ONLY projet.prescription
 
 
 --
--- Name: tarifconsultation tarifconsultation_pkey; Type: CONSTRAINT; Schema: projet; Owner: joshua.lemoine
+-- Name: tarifconsultation tarifconsultation_pkey; Type: CONSTRAINT; Schema: projet;
 --
 
 ALTER TABLE ONLY projet.tarifconsultation
@@ -484,7 +480,7 @@ ALTER TABLE ONLY projet.tarifconsultation
 
 
 --
--- Name: tarifdate tarifdate_pkey; Type: CONSTRAINT; Schema: projet; Owner: joshua.lemoine
+-- Name: tarifdate tarifdate_pkey; Type: CONSTRAINT; Schema: projet;
 --
 
 ALTER TABLE ONLY projet.tarifdate
@@ -492,7 +488,7 @@ ALTER TABLE ONLY projet.tarifdate
 
 
 --
--- Name: traitements traitements_pkey; Type: CONSTRAINT; Schema: projet; Owner: joshua.lemoine
+-- Name: traitements traitements_pkey; Type: CONSTRAINT; Schema: projet;
 --
 
 ALTER TABLE ONLY projet.traitements
@@ -500,7 +496,7 @@ ALTER TABLE ONLY projet.traitements
 
 
 --
--- Name: consultation consultation_ibfk_1; Type: FK CONSTRAINT; Schema: projet; Owner: joshua.lemoine
+-- Name: consultation consultation_ibfk_1; Type: FK CONSTRAINT; Schema: projet;
 --
 
 ALTER TABLE ONLY projet.consultation
@@ -508,7 +504,7 @@ ALTER TABLE ONLY projet.consultation
 
 
 --
--- Name: coutmanip coutmanip_ibfk_1; Type: FK CONSTRAINT; Schema: projet; Owner: joshua.lemoine
+-- Name: coutmanip coutmanip_ibfk_1; Type: FK CONSTRAINT; Schema: projet;
 --
 
 ALTER TABLE ONLY projet.coutmanip
@@ -516,7 +512,7 @@ ALTER TABLE ONLY projet.coutmanip
 
 
 --
--- Name: animaux fk_anim; Type: FK CONSTRAINT; Schema: projet; Owner: joshua.lemoine
+-- Name: animaux fk_anim; Type: FK CONSTRAINT; Schema: projet;
 --
 
 ALTER TABLE ONLY projet.animaux
@@ -524,7 +520,7 @@ ALTER TABLE ONLY projet.animaux
 
 
 --
--- Name: consultation fk_conspre; Type: FK CONSTRAINT; Schema: projet; Owner: joshua.lemoine
+-- Name: consultation fk_conspre; Type: FK CONSTRAINT; Schema: projet;
 --
 
 ALTER TABLE ONLY projet.consultation
@@ -532,7 +528,7 @@ ALTER TABLE ONLY projet.consultation
 
 
 --
--- Name: consulter fk_numanimal; Type: FK CONSTRAINT; Schema: projet; Owner: joshua.lemoine
+-- Name: consulter fk_numanimal; Type: FK CONSTRAINT; Schema: projet;
 --
 
 ALTER TABLE ONLY projet.consulter
@@ -540,7 +536,7 @@ ALTER TABLE ONLY projet.consulter
 
 
 --
--- Name: coutmanip fk_numcons; Type: FK CONSTRAINT; Schema: projet; Owner: joshua.lemoine
+-- Name: coutmanip fk_numcons; Type: FK CONSTRAINT; Schema: projet;
 --
 
 ALTER TABLE ONLY projet.coutmanip
@@ -548,7 +544,7 @@ ALTER TABLE ONLY projet.coutmanip
 
 
 --
--- Name: prescription fk_numcons; Type: FK CONSTRAINT; Schema: projet; Owner: joshua.lemoine
+-- Name: prescription fk_numcons; Type: FK CONSTRAINT; Schema: projet;
 --
 
 ALTER TABLE ONLY projet.prescription
@@ -556,7 +552,7 @@ ALTER TABLE ONLY projet.prescription
 
 
 --
--- Name: consulter fk_numcons; Type: FK CONSTRAINT; Schema: projet; Owner: joshua.lemoine
+-- Name: consulter fk_numcons; Type: FK CONSTRAINT; Schema: projet;
 --
 
 ALTER TABLE ONLY projet.consulter
@@ -564,7 +560,7 @@ ALTER TABLE ONLY projet.consulter
 
 
 --
--- Name: prescription prescription_ibfk_2; Type: FK CONSTRAINT; Schema: projet; Owner: joshua.lemoine
+-- Name: prescription prescription_ibfk_2; Type: FK CONSTRAINT; Schema: projet;
 --
 
 ALTER TABLE ONLY projet.prescription
@@ -572,7 +568,7 @@ ALTER TABLE ONLY projet.prescription
 
 
 --
--- Name: tarifdate tarifdate_ibfk_1; Type: FK CONSTRAINT; Schema: projet; Owner: joshua.lemoine
+-- Name: tarifdate tarifdate_ibfk_1; Type: FK CONSTRAINT; Schema: projet;
 --
 
 ALTER TABLE ONLY projet.tarifdate
@@ -580,7 +576,7 @@ ALTER TABLE ONLY projet.tarifdate
 
 
 --
--- Name: SCHEMA projet; Type: ACL; Schema: -; Owner: joshua.lemoine
+-- Name: SCHEMA projet; Type: ACL; Schema: -;
 --
 
 REVOKE ALL ON SCHEMA projet FROM PUBLIC;
@@ -590,7 +586,7 @@ GRANT ALL ON SCHEMA projet TO "nidal.idrissi";
 
 
 --
--- Name: TABLE animaux; Type: ACL; Schema: projet; Owner: joshua.lemoine
+-- Name: TABLE animaux; Type: ACL; Schema: projet;
 --
 
 REVOKE ALL ON TABLE projet.animaux FROM PUBLIC;
@@ -599,7 +595,7 @@ GRANT ALL ON TABLE projet.animaux TO "joshua.lemoine";
 
 
 --
--- Name: TABLE consultation; Type: ACL; Schema: projet; Owner: joshua.lemoine
+-- Name: TABLE consultation; Type: ACL; Schema: projet;
 --
 
 REVOKE ALL ON TABLE projet.consultation FROM PUBLIC;
@@ -609,7 +605,7 @@ GRANT ALL ON TABLE projet.consultation TO "nidal.idrissi";
 
 
 --
--- Name: TABLE consulter; Type: ACL; Schema: projet; Owner: joshua.lemoine
+-- Name: TABLE consulter; Type: ACL; Schema: projet;
 --
 
 REVOKE ALL ON TABLE projet.consulter FROM PUBLIC;
@@ -619,7 +615,7 @@ GRANT ALL ON TABLE projet.consulter TO "nidal.idrissi";
 
 
 --
--- Name: TABLE coutmanip; Type: ACL; Schema: projet; Owner: joshua.lemoine
+-- Name: TABLE coutmanip; Type: ACL; Schema: projet;
 --
 
 REVOKE ALL ON TABLE projet.coutmanip FROM PUBLIC;
@@ -629,7 +625,7 @@ GRANT ALL ON TABLE projet.coutmanip TO "nidal.idrissi";
 
 
 --
--- Name: TABLE manipulation; Type: ACL; Schema: projet; Owner: joshua.lemoine
+-- Name: TABLE manipulation; Type: ACL; Schema: projet;
 --
 
 REVOKE ALL ON TABLE projet.manipulation FROM PUBLIC;
@@ -639,7 +635,7 @@ GRANT ALL ON TABLE projet.manipulation TO "nidal.idrissi";
 
 
 --
--- Name: TABLE prescription; Type: ACL; Schema: projet; Owner: joshua.lemoine
+-- Name: TABLE prescription; Type: ACL; Schema: projet;
 --
 
 REVOKE ALL ON TABLE projet.prescription FROM PUBLIC;
@@ -649,7 +645,7 @@ GRANT ALL ON TABLE projet.prescription TO "nidal.idrissi";
 
 
 --
--- Name: TABLE proprietair; Type: ACL; Schema: projet; Owner: joshua.lemoine
+-- Name: TABLE proprietair; Type: ACL; Schema: projet;
 --
 
 REVOKE ALL ON TABLE projet.proprietair FROM PUBLIC;
@@ -658,7 +654,7 @@ GRANT ALL ON TABLE projet.proprietair TO "joshua.lemoine";
 
 
 --
--- Name: TABLE tarifconsultation; Type: ACL; Schema: projet; Owner: joshua.lemoine
+-- Name: TABLE tarifconsultation; Type: ACL; Schema: projet;
 --
 
 REVOKE ALL ON TABLE projet.tarifconsultation FROM PUBLIC;
@@ -668,7 +664,7 @@ GRANT ALL ON TABLE projet.tarifconsultation TO "nidal.idrissi";
 
 
 --
--- Name: TABLE tarifdate; Type: ACL; Schema: projet; Owner: joshua.lemoine
+-- Name: TABLE tarifdate; Type: ACL; Schema: projet;
 --
 
 REVOKE ALL ON TABLE projet.tarifdate FROM PUBLIC;
@@ -678,7 +674,7 @@ GRANT ALL ON TABLE projet.tarifdate TO "nidal.idrissi";
 
 
 --
--- Name: TABLE traitements; Type: ACL; Schema: projet; Owner: joshua.lemoine
+-- Name: TABLE traitements; Type: ACL; Schema: projet; 
 --
 
 REVOKE ALL ON TABLE projet.traitements FROM PUBLIC;
