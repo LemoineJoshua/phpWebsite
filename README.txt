@@ -16,3 +16,5 @@ Les logs pour consulter le compte veterinaire : Daktari/Daktari
 
 Il y a plein de petits soucis à droite à gauche, surtout au niveau de la sécurité, mais pour un premier site web dynamique en PHP je suis plutôt fier. Il rend bien.
 En tout cas j'espère qu'il vous plaira.
+
+Ha oui il manque un dossier 'connexion.inc.php' pour se connecter à la base de donnée qui contiendra les informations nécéssaire pour faire tourner le site. Mais ca ca vous regarde :).
