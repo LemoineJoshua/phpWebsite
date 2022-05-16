@@ -7,7 +7,7 @@ Les fonctionnalités sont surtout orientées client: consultations de rendez vou
 Ce site est séparé en trois pages :
 -l'index qui regroupe le majorité des informations (vous verrez d'ailleurs des menus fait en HTML CSS et non Javascript qui sont plutot sympa :D);
 -le profil qui contients les informations sur les animaux et les rendez vous (ses animaux si on est un client, tout les animaux si on est le veterianaire);
--l'ajout d'animaux un formulaire qui à été mis à part pour des raisons de praticités;
+-l'ajout d'animaux, un formulaire qui à été mis à part pour des raisons de praticités;
 
 Il y à un dump d'une base de données postgreSQL avec de quoi tester le site web.
 
